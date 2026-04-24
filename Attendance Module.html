@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Attendance Module – MS Hifz Academy ERP</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 40px; color: #222; font-size: 14px; }
+  h1 { color: #1a56a0; font-size: 24px; border-bottom: 3px solid #1a56a0; padding-bottom: 8px; }
+  h2 { color: #1a56a0; font-size: 18px; margin-top: 36px; }
+  h3 { color: #333; font-size: 15px; margin-top: 20px; }
+  .module-title { background: #1a56a0; color: #fff; padding: 14px 24px; font-size: 20px; font-weight: bold; margin-bottom: 30px; border-radius: 4px; }
+  .step-box { border-left: 4px solid #1a56a0; padding: 10px 18px; margin: 18px 0; background: #f4f8ff; border-radius: 0 6px 6px 0; }
+  .step-title { font-weight: bold; font-size: 15px; color: #1a56a0; margin-bottom: 6px; }
+  ol li, ul li { margin-bottom: 7px; line-height: 1.6; }
+  .note { background: #fff8e1; border-left: 4px solid #f9a825; padding: 8px 14px; margin: 12px 0; border-radius: 0 4px 4px 0; font-size: 13px; }
+  .warn { background: #fdecea; border-left: 4px solid #c62828; padding: 8px 14px; margin: 12px 0; border-radius: 0 4px 4px 0; font-size: 13px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; }
+  th { background: #1a56a0; color: #fff; padding: 8px 12px; text-align: left; }
+  td { border: 1px solid #ddd; padding: 7px 12px; }
+  tr:nth-child(even) { background: #f4f8ff; }
+  .toc { background: #f0f4ff; border: 1px solid #c5d5f5; border-radius: 6px; padding: 16px 24px; margin-bottom: 30px; }
+  .toc a { color: #1a56a0; text-decoration: none; display: block; margin: 4px 0; }
+  .toc a:hover { text-decoration: underline; }
+  .screenshot { margin: 18px 0; text-align: center; }
+  .screenshot img { max-width: 100%; border: 1px solid #ccc; border-radius: 6px; box-shadow: 0 2px 10px rgba(0,0,0,0.12); }
+  .screenshot-caption { font-size: 12px; color: #666; margin-top: 6px; font-style: italic; }
+  @media print { body { margin: 20px; } }
+</style>
+</head>
+<body>
+
+<div class="module-title">MS HIFZ ACADEMY ERP — Attendance Module</div>
+
+<h1>Attendance Module</h1>
+<p>This document covers the complete workflow for managing student attendance in the MS Hifz Academy ERP — from initial calendar configuration to daily attendance marking, monthly register view, reports, and exam attendance tracking.</p>
+
+<div class="toc">
+  <strong>Contents</strong>
+  <a href="#navigate">Navigate to Attendance</a>
+  <a href="#step1">Step 1 – Configure Weekly Off Policy</a>
+  <a href="#step2">Step 2 – Configure Holiday Policy</a>
+  <a href="#step3">Step 3 – Navigate to Student Attendance</a>
+  <a href="#step4">Step 4 – Mark Daily Attendance (Take Attendance)</a>
+  <a href="#step5">Step 5 – Register View: Monthly Attendance Entry</a>
+  <a href="#step6">Step 6 – Register View: Attendance Register Query</a>
+  <a href="#step7">Step 7 – View Attendance Reports</a>
+  <a href="#step8">Step 8 – Exam Attendance (Set Exam Attendance)</a>
+  <a href="#reference">Attendance Status Reference</a>
+</div>
+
+<!-- NAVIGATE -->
+<h2 id="navigate">Navigate to Attendance Configuration</h2>
+<ol>
+  <li>Log in to the MS Hifz Academy ERP portal.</li>
+  <li>From the top header, select the required <strong>Branch</strong> and <strong>Academic Year</strong>.</li>
+  <li>In the left sidebar, click on <strong>Setup Your School</strong>.</li>
+  <li>The Setup Your School screen opens, showing two main cards: <strong>Classes</strong> and <strong>Configuration</strong>.</li>
+  <li>Click on <strong>Configuration → Configure</strong> to open the Configuration Management module.</li>
+</ol>
+
+<div class="screenshot">
+  <img src="images/setup-your-school.png" alt="Setup Your School screen showing Classes and Configuration cards" />
+  <div class="screenshot-caption">Setup Your School — Click on Configuration to manage week-off rules, holidays, departments, and designations.</div>
+</div>
+
+<!-- STEP 1 -->
+<div class="step-box" id="step1">
+  <div class="step-title">Step 1 — Configure Weekly Off Policy</div>
+</div>
+<p>Weekly Off Policy defines which day(s) of the week are non-working days. Attendance cannot be marked on these days — they appear as <strong>H</strong> (Holiday) in the register.</p>
+<ol>
+  <li>In <strong>Configuration Management</strong>, click the <strong>Masters</strong> dropdown in the top navigation.</li>
+  <li>Select <strong>Week-off Policy</strong> from the dropdown.</li>
+  <li>The <strong>Week-off Policy</strong> screen opens showing existing rules on the right side.</li>
+  <li>To add a new rule, fill in the <strong>Add New Weekoff Rule</strong> form on the left:
+    <ul>
+      <li><strong>Branch</strong> — Select the branch for this rule (e.g., Vijay Nagar Colony).</li>
+      <li><strong>Class</strong> — Select <em>All Classes</em> or a specific class.</li>
+      <li><strong>Day</strong> — Select the day of the week (e.g., Sunday).</li>
+      <li><strong>Rule</strong> — Select the frequency:
+        <ul>
+          <li><em>Every Week</em> — This day is off every week.</li>
+          <li><em>First Week</em> — Only the first occurrence of this day in a month.</li>
+          <li><em>Second Week / Third Week / Fourth Week / Fifth Week</em> — As needed.</li>
+        </ul>
+      </li>
+      <li>The <strong>Preview</strong> shows a summary (e.g., <em>Every – Sunday (All Classes)</em>).</li>
+    </ul>
+  </li>
+  <li>Click <strong>+ Save Rule</strong>.</li>
+  <li>The new rule appears in the list on the right side (e.g., <em>All – Sunday, Branch: Tolichowki</em>).</li>
+</ol>
+<div class="note">&#9432; Different branches can have different weekly off schedules. Configure each branch's rule separately.</div>
+
+<div class="screenshot">
+  <img src="images/weekoff-policy.png" alt="Week-off Policy configuration screen" />
+  <div class="screenshot-caption">Week-off Policy — Masters → Week-off Policy. Select Branch, Class, Day, and Rule frequency, then click Save Rule.</div>
+</div>
+
+<!-- STEP 2 -->
+<div class="step-box" id="step2">
+  <div class="step-title">Step 2 — Configure Holiday Policy</div>
+</div>
+<p>Holidays are specific dates on which the school is closed (national holidays, religious festivals, school events, etc.).</p>
+<ol>
+  <li>In <strong>Configuration Management</strong>, click the <strong>Masters</strong> dropdown.</li>
+  <li>Select <strong>Holiday Policy</strong> from the dropdown.</li>
+  <li>The <strong>Holiday Policy</strong> screen opens. Existing holidays are listed on the right.</li>
+  <li>To add a new holiday, fill in the <strong>Add New Holiday</strong> form on the left:
+    <ul>
+      <li><strong>Branch</strong> — Select the branch (e.g., Vijay Nagar Colony).</li>
+      <li><strong>Class</strong> — Select <em>All Classes</em> or a specific class.</li>
+      <li><strong>Holiday Title</strong> — Enter the holiday name (e.g., <em>Jayanth</em>, <em>Eid al-Fitr</em>, <em>Republic Day</em>).</li>
+      <li><strong>Holiday For</strong> — Select who this holiday applies to:
+        <ul>
+          <li><em>Students Only</em></li>
+          <li><em>Staff Only</em></li>
+          <li><em>Both Students and Staff</em></li>
+        </ul>
+      </li>
+      <li><strong>Start Date</strong> — Select the holiday start date.</li>
+      <li><strong>End Date</strong> — Select the holiday end date (same as start for single-day holidays).</li>
+      <li><strong>Display Order</strong> — Set the display sequence.</li>
+      <li><strong>Description</strong> — Optional remarks about the holiday.</li>
+    </ul>
+  </li>
+  <li>Click <strong>+ Save Holiday</strong>.</li>
+  <li>The holiday appears in the list on the right (e.g., <em>Ramdam — 15 Apr 2026 — Students</em>).</li>
+  <li>To edit a holiday, click the <strong>Edit (pencil)</strong> icon. To delete, click the <strong>Delete (trash)</strong> icon.</li>
+</ol>
+<div class="note">&#9432; Holidays marked as <em>Students Only</em> affect student attendance registers only. Staff attendance is not impacted on those dates.</div>
+<div class="note">&#9432; Configure all holidays at the start of the academic year. You can add new ones at any point during the year as needed.</div>
+
+<div class="screenshot">
+  <img src="images/holiday-policy.png" alt="Holiday Policy configuration screen" />
+  <div class="screenshot-caption">Holiday Policy — Masters → Holiday Policy. Fill in Holiday Title, Holiday For, Start/End Date, then click Save Holiday. Existing holidays appear on the right.</div>
+</div>
+
+<!-- STEP 3 -->
+<div class="step-box" id="step3">
+  <div class="step-title">Step 3 — Navigate to Student Attendance</div>
+</div>
+<p>After completing the configuration (Steps 1 &amp; 2), navigate to the Student Attendance module to start marking attendance.</p>
+<ol>
+  <li>In the left sidebar, click on <strong>Administration</strong>.</li>
+  <li>The Administration dashboard opens, showing all available sub-modules as cards.</li>
+  <li>Locate the <strong>Student Attendance</strong> card (marked as <em>Active</em>) and click on it.</li>
+  <li>The Student Attendance module will open.</li>
+</ol>
+<div class="note">&#9432; Other modules visible on the Administration dashboard (Hostel, Leave, Library, Calendar, etc.) are marked <em>Coming Soon</em> and are not yet active.</div>
+
+<div class="screenshot">
+  <img src="images/administration-attendance.png" alt="Administration module showing Student Attendance card" />
+  <div class="screenshot-caption">Administration Module — Click on Student Attendance (Active) to open the attendance management screen.</div>
+</div>
+
+<!-- STEP 4 -->
+<div class="step-box" id="step4">
+  <div class="step-title">Step 4 — Mark Daily Attendance (Take Attendance)</div>
+</div>
+<p>Use the <strong>Take Attendance</strong> view to mark daily attendance for each class and section.</p>
+<ol>
+  <li>On the Student Attendance screen, click the <strong>Take Attendance</strong> button (top right).</li>
+  <li>Set the filters:
+    <ul>
+      <li><strong>Attendance Date</strong> — Defaults to today's date. Change if marking for a different date.</li>
+      <li><strong>Class</strong> — Select the class (e.g., 4).</li>
+      <li><strong>Section</strong> — Select the section (e.g., HA1).</li>
+    </ul>
+  </li>
+  <li>Click <strong>Get Students</strong>. The student list for the selected class/section loads.</li>
+  <li>The table shows: Roll No, Admission No, Student Name, Father Name, Phone, and <strong>Status</strong> (radio buttons: <strong>P</strong> for Present, <strong>A</strong> for Absent).</li>
+  <li>By default, all students are marked <strong>P (Present)</strong>.</li>
+  <li>Use <strong>Mark All Present</strong> or <strong>Mark All Absent</strong> buttons for bulk marking.</li>
+  <li>For students who are absent, click the <strong>A</strong> radio button next to their name.</li>
+  <li>After marking all students, click <strong>Save Attendance</strong> (green button, bottom right).</li>
+  <li>Attendance is saved. The records are now reflected in the monthly register.</li>
+</ol>
+<div class="note">&#9432; Attendance can only be marked on working days. Weekends and holidays (configured in Steps 1 &amp; 2) are automatically excluded.</div>
+
+<div class="screenshot">
+  <img src="images/take-attendance.png" alt="Take Attendance screen showing student list with P/A radio buttons" />
+  <div class="screenshot-caption">Take Attendance — Select Date, Class, Section, click Get Students. Mark P (Present) or A (Absent) for each student, then click Save Attendance.</div>
+</div>
+
+<!-- STEP 5 -->
+<div class="step-box" id="step5">
+  <div class="step-title">Step 5 — Register View: Monthly Attendance Entry</div>
+</div>
+<p>The <strong>Register View</strong> provides a calendar-grid view for viewing and editing attendance for an entire month at once.</p>
+<ol>
+  <li>On the Student Attendance screen, click the <strong>Register View</strong> button (top right).</li>
+  <li>Two tabs appear: <strong>Attendance Register Query</strong> and <strong>Monthly Attendance Entry</strong>.</li>
+  <li>Click on <strong>Monthly Attendance Entry</strong> tab.</li>
+  <li>Set the filters:
+    <ul>
+      <li><strong>Class</strong> — Select the class.</li>
+      <li><strong>Section</strong> — Select the section.</li>
+      <li><strong>Month</strong> — Select the month (e.g., April).</li>
+      <li><strong>Year</strong> — Enter the year (e.g., 2026).</li>
+    </ul>
+  </li>
+  <li>Click <strong>Get Register</strong>.</li>
+  <li>A calendar grid appears with students as rows and dates (1–30/31) as columns.</li>
+  <li>Each cell shows the attendance status:
+    <ul>
+      <li><strong>P</strong> (green) — Present</li>
+      <li><strong>A</strong> (red) — Absent</li>
+      <li><strong>H</strong> (grey) — Holiday / Weekly Off</li>
+      <li><strong>—</strong> — Not marked yet</li>
+    </ul>
+  </li>
+  <li><strong>Click on any cell</strong> to toggle it between Present and Absent. The note at the top says: <em>"Click on a cell to toggle Present/Absent"</em>.</li>
+  <li>After making corrections, click <strong>Save All Changes</strong> (top right, green button).</li>
+  <li>Click <strong>Reset Changes</strong> to undo unsaved edits.</li>
+</ol>
+<div class="note">&#9432; This view is ideal for bulk corrections — e.g., if a date was missed and you need to enter attendance for multiple students across multiple days in one go.</div>
+
+<div class="screenshot">
+  <img src="images/monthly-attendance-entry.png" alt="Monthly Attendance Entry calendar grid" />
+  <div class="screenshot-caption">Register View → Monthly Attendance Entry — Calendar grid showing daily P/A per student. Click any cell to toggle. Save All Changes when done.</div>
+</div>
+
+<!-- STEP 6 -->
+<div class="step-box" id="step6">
+  <div class="step-title">Step 6 — Register View: Attendance Register Query</div>
+</div>
+<p>The <strong>Attendance Register Query</strong> provides a read-only month-wise view showing each student's full attendance record along with totals and percentage.</p>
+<ol>
+  <li>In <strong>Register View</strong>, click the <strong>Attendance Register Query</strong> tab.</li>
+  <li>Set the filters:
+    <ul>
+      <li><strong>Class</strong> — Select class.</li>
+      <li><strong>Section</strong> — Select section.</li>
+      <li><strong>Month</strong> — Select month (e.g., April).</li>
+      <li><strong>Year</strong> — Enter year (e.g., 2026).</li>
+    </ul>
+  </li>
+  <li>Click <strong>Get Register</strong>.</li>
+  <li>The register grid shows all dates for the month, with colour-coded status per student:
+    <ul>
+      <li><strong>P</strong> — Present (green)</li>
+      <li><strong>A</strong> — Absent (red/pink)</li>
+      <li><strong>H</strong> — Holiday (grey)</li>
+    </ul>
+  </li>
+  <li>The rightmost columns show summary totals:
+    <ul>
+      <li><strong>Present</strong> — Total days present</li>
+      <li><strong>Absent</strong> — Total days absent</li>
+      <li><strong>Total Working Days</strong> — Total school days in the month</li>
+      <li><strong>Attendance %</strong> — Attendance percentage (e.g., 40.0%)</li>
+    </ul>
+  </li>
+  <li>Click <strong>Export Excel</strong> (green button, bottom left) to download the register as an Excel file.</li>
+</ol>
+<div class="note">&#9432; This view is read-only — you cannot edit attendance from here. Use <em>Monthly Attendance Entry</em> (Step 5) to make corrections.</div>
+<div class="note">&#9432; The Attendance % shown here is the same percentage that appears on the Student Report Card for the linked exam (configured via Set Exam Attendance).</div>
+
+<div class="screenshot">
+  <img src="images/attendance-register-query.png" alt="Attendance Register Query showing monthly calendar grid with totals" />
+  <div class="screenshot-caption">Attendance Register Query — Month-wise calendar grid with Present, Absent, Total Working Days, and Attendance % per student. Click Export Excel to download.</div>
+</div>
+
+<!-- STEP 7 -->
+<div class="step-box" id="step7">
+  <div class="step-title">Step 7 — View Attendance Reports</div>
+</div>
+<p>Access detailed attendance reports from the Reports menu on the Student Attendance screen.</p>
+<ol>
+  <li>On the Student Attendance screen, click the <strong>Reports</strong> dropdown (top right).</li>
+  <li>Select the required report type:
+    <ul>
+      <li><strong>Student Attendance Report</strong> — Attendance summary for selected class/section/date range.</li>
+      <li><strong>Defaulter Report</strong> — Students whose attendance % is below a threshold.</li>
+      <li><strong>Monthly Summary</strong> — Month-wise attendance totals per student.</li>
+    </ul>
+  </li>
+  <li>Set the filters (Branch, Class, Section, Month/Date Range, Student).</li>
+  <li>Click <strong>Get Report</strong>.</li>
+  <li>The report displays with totals and percentages.</li>
+  <li>Click <strong>Export Excel</strong> or <strong>Print</strong> to export the report.</li>
+</ol>
+
+<!-- STEP 8 -->
+<div class="step-box" id="step8">
+  <div class="step-title">Step 8 — Exam Attendance (Set Exam Attendance)</div>
+</div>
+<p>Exam Attendance links specific attendance months to a test/exam. The attendance from the linked months will appear on the Student Report Card for that exam.</p>
+<ol>
+  <li>Navigate to the <strong>Academic Module</strong> from the left sidebar.</li>
+  <li>Click the <strong>Academic Actions</strong> dropdown in the top navigation.</li>
+  <li>Click on <strong>Set Exam Attendance</strong>.</li>
+  <li>Select the filters:
+    <ul>
+      <li><strong>Academic Year</strong> (e.g., 2025–2026)</li>
+      <li><strong>Branch</strong> (e.g., Murad Nagar)</li>
+      <li><strong>Class</strong> (e.g., 6)</li>
+      <li><strong>Select Exam</strong> (e.g., FA-1, SA-1, Unit Test 1)</li>
+    </ul>
+  </li>
+  <li>The screen shows a calendar of months for the academic year (Jan 2025 – Dec 2026).</li>
+  <li>Check the checkbox for each month whose attendance should count for this exam's report card.<br/>
+      Example: For <em>FA-1</em> (June–August term), check June, July, and August 2025.</li>
+  <li>Click <strong>Save Settings</strong>.</li>
+  <li>The attendance from the selected months will now appear in the Attendance section of the Student Report Card for that exam.</li>
+</ol>
+<div class="note">&#9432; Allowed range: Jan 2025 – Dec 2026, maximum 12 months per exam. Select only the months relevant to the exam period.</div>
+<div class="note">&#9432; Always set Exam Attendance before generating Report Cards — if no months are linked, the attendance section on the report card will be blank.</div>
+
+<!-- REFERENCE TABLE -->
+<h2 id="reference">Attendance Status Reference</h2>
+<table>
+  <tr>
+    <th>Status Code</th>
+    <th>Full Name</th>
+    <th>Description</th>
+    <th>Counts as Working Day?</th>
+  </tr>
+  <tr><td><strong>P</strong></td><td>Present</td><td>Student was present in school</td><td>Yes — Present</td></tr>
+  <tr><td><strong>A</strong></td><td>Absent</td><td>Student was absent</td><td>Yes — Absent</td></tr>
+  <tr><td><strong>H</strong></td><td>Holiday / Weekly Off</td><td>Holiday or Weekly Off (auto-set by system)</td><td>No</td></tr>
+  <tr><td><strong>—</strong></td><td>Not Marked</td><td>Attendance not yet entered for this date</td><td>Not counted until marked</td></tr>
+</table>
+
+<h2>Attendance Module — Workflow Summary</h2>
+<table>
+  <tr>
+    <th>Step</th>
+    <th>Action</th>
+    <th>Where</th>
+    <th>Who</th>
+    <th>When</th>
+  </tr>
+  <tr><td>1</td><td>Configure Weekly Off Policy</td><td>Setup Your School → Configuration → Masters → Week-off Policy</td><td>Admin</td><td>Start of academic year</td></tr>
+  <tr><td>2</td><td>Configure Holiday Policy</td><td>Setup Your School → Configuration → Masters → Holiday Policy</td><td>Admin</td><td>Start of year / as needed</td></tr>
+  <tr><td>3</td><td>Navigate to Student Attendance</td><td>Administration → Student Attendance</td><td>All</td><td>Daily</td></tr>
+  <tr><td>4</td><td>Mark Daily Attendance</td><td>Take Attendance</td><td>Class Teacher / Admin</td><td>Every school day</td></tr>
+  <tr><td>5</td><td>Edit / Bulk Monthly Entry</td><td>Register View → Monthly Attendance Entry</td><td>Class Teacher / Admin</td><td>As needed</td></tr>
+  <tr><td>6</td><td>Query Monthly Register</td><td>Register View → Attendance Register Query</td><td>Admin / Teacher</td><td>Monthly review</td></tr>
+  <tr><td>7</td><td>View Reports</td><td>Reports dropdown</td><td>Admin / Teacher</td><td>Monthly / as needed</td></tr>
+  <tr><td>8</td><td>Set Exam Attendance</td><td>Academic Module → Academic Actions → Set Exam Attendance</td><td>Admin</td><td>Before generating Report Cards</td></tr>
+</table>
+
+<br/><hr/>
+<p style="text-align:center; color:#888; font-size:12px;">MS Hifz Academy ERP — Attendance Module Documentation &nbsp;|&nbsp; Version 1.0 &nbsp;|&nbsp; 2025–2026</p>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>User Management Module – MS Hifz Academy ERP</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 40px; color: #222; font-size: 14px; }
+  h1 { color: #1a56a0; font-size: 24px; border-bottom: 3px solid #1a56a0; padding-bottom: 8px; }
+  h2 { color: #1a56a0; font-size: 18px; margin-top: 36px; }
+  h3 { color: #333; font-size: 15px; margin-top: 20px; }
+  .module-title { background: #1a56a0; color: #fff; padding: 14px 24px; font-size: 20px; font-weight: bold; margin-bottom: 30px; border-radius: 4px; }
+  .step-box { border-left: 4px solid #1a56a0; padding: 10px 18px; margin: 18px 0; background: #f4f8ff; border-radius: 0 6px 6px 0; }
+  .step-title { font-weight: bold; font-size: 15px; color: #1a56a0; margin-bottom: 6px; }
+  ol li, ul li { margin-bottom: 7px; line-height: 1.6; }
+  .note { background: #fff8e1; border-left: 4px solid #f9a825; padding: 8px 14px; margin: 12px 0; border-radius: 0 4px 4px 0; font-size: 13px; }
+  .arrow { color: #1a56a0; font-weight: bold; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; }
+  th { background: #1a56a0; color: #fff; padding: 8px 12px; text-align: left; }
+  td { border: 1px solid #ddd; padding: 7px 12px; }
+  tr:nth-child(even) { background: #f4f8ff; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: bold; }
+  .badge-admin { background: #e8f5e9; color: #2e7d32; }
+  .badge-warning { background: #fff3e0; color: #e65100; }
+  .toc { background: #f0f4ff; border: 1px solid #c5d5f5; border-radius: 6px; padding: 16px 24px; margin-bottom: 30px; }
+  .toc a { color: #1a56a0; text-decoration: none; display: block; margin: 4px 0; }
+  .toc a:hover { text-decoration: underline; }
+  @media print { body { margin: 20px; } }
+</style>
+</head>
+<body>
+
+<div class="module-title">MS HIFZ ACADEMY ERP — User Management Module</div>
+
+<h1>User Management Module</h1>
+<p>This document describes the complete workflow for managing system users in the MS Hifz Academy ERP portal — including how to create users, assign roles, manage branch access, and reset passwords.</p>
+
+<div class="toc">
+  <strong>Contents</strong>
+  <a href="#login">Login to the Portal</a>
+  <a href="#navigate">Navigate to User Management</a>
+  <a href="#step1">Step 1 – Create a New User</a>
+  <a href="#step2">Step 2 – Assign Role to User</a>
+  <a href="#step3">Step 3 – Assign Branch Access</a>
+  <a href="#step4">Step 4 – Edit / Deactivate a User</a>
+  <a href="#step5">Step 5 – Reset User Password</a>
+  <a href="#roles">User Role Reference Table</a>
+</div>
+
+<!-- LOGIN -->
+<h2 id="login">Login to the Portal</h2>
+<ol>
+  <li>Open a web browser and navigate to the MS Hifz Academy ERP portal URL.</li>
+  <li>Enter your <strong>Username</strong> and <strong>Password</strong>.</li>
+  <li>Click <strong>Login</strong>. The main Dashboard will open.</li>
+  <li>From the <strong>Branch Selector</strong> in the top header, select the required branch and Academic(or <em>All Locations</em> to manage users across all branches).</li>
+</ol>
+<div class="note">&#9432; Only users with <strong>Admin</strong> credentials can access User Management screens.</div>
+<div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 10px;">
+  <div style="flex: 1;">
+    <img src="images/login.png" alt="Login screen for the MS Hifz Academy ERP portal" style="width: 100%; height: auto; border: 1px solid #ddd;">
+  </div>
+  <div style="flex: 1;">
+    <img src="images/User Branch.png" alt="User branch screen" style="width: 100%; height: auto; border: 1px solid #ddd;">
+  </div>
+</div>
+<div style="font-style: italic; color: #666; margin-top: 5px;">
+  Login Screen — Enter your credentials to access the ERP portal.
+</div>
+</div>
+
+<!-- NAVIGATE -->
+<h2 id="navigate">Navigate to My Details</h2>
+<ol>
+  <li>Locate the <strong>left sidebar</strong> menu on your Dashboard.</li>
+  <li>Scroll to the bottom of the menu list.</li>
+  <li>Click on <strong>My Details</strong> (represented by the user icon).</li>
+</ol>
+
+<!-- STEP 1 -->
+<div class="step-box" id="step1">
+  <div class="step-title">Step 1 — Create a New User</div>
+</div>
+<p>To add a new staff member or administrator to the system:</p>
+<ol>
+  <li>On the User Management screen, click the <strong>+ Add User</strong> button (top right).</li>
+  <li>The <strong>Add User</strong> form will open. Fill in the following fields:
+    <ul>
+      <li><strong>Full Name</strong> — Enter the user's complete name.</li>
+      <li><strong>Username</strong> — Enter a unique login username (e.g., <em>teacher_sara</em> or <em>finance_ahmed</em>). No spaces allowed.</li>
+      <li><strong>Email</strong> — Enter the user's email address (optional but recommended for password recovery).</li>
+      <li><strong>Password</strong> — Set a temporary password. The user can change it after first login.</li>
+      <li><strong>Confirm Password</strong> — Re-enter the password to confirm.</li>
+      <li><strong>Role</strong> — Select the appropriate role from the dropdown (see Role Reference Table below).</li>
+      <li><strong>Branch Access</strong> — Select which branch(es) this user can access.</li>
+    </ul>
+  </li>
+  <li>Click <strong>Save</strong> or <strong>Add User</strong> to create the user.</li>
+  <li>The new user will appear in the User Management list.</li>
+</ol>
+<div class="note">&#9432; Once a user is created, they can log in immediately with the credentials you set.</div>
+
+<!-- STEP 2 -->
+<div class="step-box" id="step2">
+  <div class="step-title">Step 2 — Assign Role to User</div>
+</div>
+<p>Roles control what features each user can access in the ERP system.</p>
+<ol>
+  <li>When creating or editing a user, open the <strong>Role</strong> dropdown.</li>
+  <li>Select the appropriate role based on the user's responsibilities.</li>
+  <li>Click <strong>Save</strong> to apply the role.</li>
+</ol>
+<div class="note">&#9432; A user's role cannot be changed from a lower privilege to Admin by a non-Admin user. Only existing Admins can promote users to Admin.</div>
+
+<!-- STEP 3 -->
+<div class="step-box" id="step3">
+  <div class="step-title">Step 3 — Assign Branch Access</div>
+</div>
+<p>The MS Hifz ERP supports multiple branches. Each user must be assigned to at least one branch.</p>
+<ol>
+  <li>While creating or editing a user, locate the <strong>Branch Access</strong> section.</li>
+  <li>Check the checkbox(es) for the branch(es) this user should have access to.</li>
+  <li>If the user manages all branches (e.g., an Admin), check <strong>All Branches</strong>.</li>
+  <li>A Class Teacher should typically only have access to their own branch.</li>
+  <li>Click <strong>Save</strong> to confirm branch assignments.</li>
+</ol>
+<div class="note">&#9432; When this user logs in and selects a branch from the header dropdown, they will only see data for their assigned branches. Unauthorized branches will not appear.</div>
+<div class="screenshot">
+  <img src="images/Create user.png" alt="Create User screen" />
+  <div class="screenshot-caption">Create User — Fill in the required fields to add a new user to the system.</div>
+</div>
+
+<!-- STEP 4 -->
+<div class="step-box" id="step4">
+  <div class="step-title">Step 4 — Edit / Deactivate a User</div>
+</div>
+<h3>Edit a User</h3>
+<ol>
+  <li>In the User Management list, locate the user you want to edit.</li>
+  <li>Click the <strong>Edit</strong> (pencil icon) next to the user.</li>
+  <li>Modify the required fields — Name, Role, Branch Access, or Email.</li>
+  <li>Click <strong>Save</strong> to apply changes. The user's next login will reflect the updated settings.</li>
+</ol>
+<h3>Deactivate a User</h3>
+<ol>
+  <li>In the User Management list, locate the user you want to deactivate.</li>
+  <li>Toggle the <strong>Status</strong> switch to <em>Inactive</em>.</li>
+  <li>Confirm the action when prompted.</li>
+  <li>The user will no longer be able to log in. All their historical data (reports, marks entry, fee records) is preserved.</li>
+</ol>
+<div class="note">&#9888; <strong>Warning:</strong> Deactivating a user is not reversible from a student-facing perspective but can be re-enabled by toggling the Status back to Active.</div>
+
+<!-- STEP 5 -->
+<div class="step-box" id="step5">
+  <div class="step-title">Step 5 — Reset User Password</div>
+</div>
+<h3>Admin-Initiated Reset</h3>
+<ol>
+  <li>In the User Management list, click <strong>Edit</strong> next to the user whose password needs to be reset.</li>
+  <li>Enter a new temporary password in the <strong>Password</strong> field.</li>
+  <li>Confirm the new password.</li>
+  <li>Click <strong>Save</strong>. Inform the user of their new temporary password.</li>
+</ol>
+<div class="screenshot">
+  <img src="images/Password change.png" alt="Password Change screen" />
+  <div class="screenshot-caption">Password Change — Enter a new temporary password for the user.</div>
+</div>
+<h3>Self-Service Password Reset (Forgot Password)</h3>
+<ol>
+  <li>On the Login screen, click <strong>Forgot Password</strong>.</li>
+  <li>Enter the registered <strong>Username</strong> or <strong>Email</strong>.</li>
+  <li>An <strong>OTP (One-Time Password)</strong> will be sent to the registered email.</li>
+  <li>Enter the OTP on the verification screen within the allowed time window.</li>
+  <li>Set a new password and confirm it.</li>
+  <li>Click <strong>Reset Password</strong>. Log in with the new password.</li>
+</ol>
+<div class="note">&#9432; OTPs expire after a short period. If the OTP expires, click <em>Resend OTP</em> on the verification screen.</div>
+<div class="screenshot">
+  <img src="images/Forgot Password.png" alt="Forgot Password screen" />
+  <div class="screenshot-caption">Forgot Password — Enter your registered email to receive a password reset link.</div>
+</div>
+<!-- ROLE TABLE -->
+<h2 id="roles">User Role Reference Table</h2>
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Access Level</th>
+    <th>Typical User</th>
+    <th>Key Permissions</th>
+  </tr>
+  <tr>
+    <td><span class="badge badge-admin">Admin</span></td>
+    <td>Full Access</td>
+    <td>School Administrator / IT Manager</td>
+    <td>All modules, all branches, user management, system configuration</td>
+  </tr>
+  <tr>
+    <td>Branch Admin</td>
+    <td>Branch-Level Full Access</td>
+    <td>Branch Principal / Manager</td>
+    <td>All modules for assigned branch; cannot manage users or global settings</td>
+  </tr>
+  <tr>
+    <td>Finance Manager</td>
+    <td>Financial Module Full Access</td>
+    <td>Accounts Staff</td>
+    <td>Fee types, fee collection, receipts, concessions, financial reports</td>
+  </tr>
+  <tr>
+    <td>Class Teacher</td>
+    <td>Academic &amp; Attendance Only</td>
+    <td>Subject / Class Teacher</td>
+    <td>Marks entry for assigned class, attendance marking, view report cards</td>
+  </tr>
+  <tr>
+    <td>Viewer / Staff</td>
+    <td>Read Only</td>
+    <td>Supporting Staff</td>
+    <td>View student lists, view reports — no create/edit/delete permissions</td>
+  </tr>
+</table>
+
+<div class="note">&#9432; Role permissions may vary based on your institution's configuration. Contact your system Admin if access is required for additional modules.</div>
+
+<br/><hr/>
+<p style="text-align:center; color:#888; font-size:12px;">MS Hifz Academy ERP — User Management Module Documentation &nbsp;|&nbsp; Version 1.0 &nbsp;|&nbsp; 2025–2026</p>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fee Module – MS Hifz Academy ERP</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 40px; color: #222; font-size: 14px; }
+  h1 { color: #1a56a0; font-size: 24px; border-bottom: 3px solid #1a56a0; padding-bottom: 8px; }
+  h2 { color: #1a56a0; font-size: 18px; margin-top: 36px; }
+  h3 { color: #333; font-size: 15px; margin-top: 20px; }
+  .module-title { background: #1a56a0; color: #fff; padding: 14px 24px; font-size: 20px; font-weight: bold; margin-bottom: 30px; border-radius: 4px; }
+  .step-box { border-left: 4px solid #1a56a0; padding: 10px 18px; margin: 18px 0; background: #f4f8ff; border-radius: 0 6px 6px 0; }
+  .step-title { font-weight: bold; font-size: 15px; color: #1a56a0; margin-bottom: 6px; }
+  ol li, ul li { margin-bottom: 7px; line-height: 1.6; }
+  .note { background: #fff8e1; border-left: 4px solid #f9a825; padding: 8px 14px; margin: 12px 0; border-radius: 0 4px 4px 0; font-size: 13px; }
+  .warn { background: #fdecea; border-left: 4px solid #c62828; padding: 8px 14px; margin: 12px 0; border-radius: 0 4px 4px 0; font-size: 13px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; }
+  th { background: #1a56a0; color: #fff; padding: 8px 12px; text-align: left; }
+  td { border: 1px solid #ddd; padding: 7px 12px; }
+  tr:nth-child(even) { background: #f4f8ff; }
+  .toc { background: #f0f4ff; border: 1px solid #c5d5f5; border-radius: 6px; padding: 16px 24px; margin-bottom: 30px; }
+  .toc a { color: #1a56a0; text-decoration: none; display: block; margin: 4px 0; }
+  .toc a:hover { text-decoration: underline; }
+  @media print { body { margin: 20px; } }
+</style>
+</head>
+<body>
+
+<div class="module-title">MS HIFZ ACADEMY ERP — Fee Module</div>
+
+<h1>Fee Module</h1>
+<p>This document covers the complete workflow for managing school fees in the MS Hifz Academy ERP — from setting up fee types and class structures to collecting payments, applying concessions, and generating fee reports.</p>
+
+<div class="toc">
+  <strong>Contents</strong>
+  <a href="#navigate">Navigate to Financial Module</a>
+  <a href="#step1">Step 1 – Create Fee Types</a>
+  <a href="#step2">Step 2 – Configure Fee Installments</a>
+  <a href="#step3">Step 3 – Set Up Class Fee Structure</a>
+  <a href="#step4">Step 4 – Assign Fees to Students</a>
+  <a href="#step5">Step 5 – Apply Concessions (Discounts/Waivers)</a>
+  <a href="#step6">Step 6 – Assign Special Fees</a>
+  <a href="#step7">Step 7 – Collect Fee Payment (Take Fee)</a>
+  <a href="#step8">Step 8 – View Fee Receipt</a>
+  <a href="#step9">Step 9 – Cancel / Delete a Payment</a>
+  <a href="#step10">Step 10 – Update Student Fee Structure</a>
+  <a href="#step11">Step 11 – Fee Reports</a>
+  <a href="#late-fee">Late Fee Configuration</a>
+</div>
+
+<h2 id="navigate">Navigate to Financial Module</h2>
+<ol>
+  <li>Log in to the ERP portal and select the required <strong>Branch</strong> from the header.</li>
+  <li>In the left sidebar, click on <strong>Financial</strong>.</li>
+  <li>The Financial module will open displaying the fee management menu.</li>
+</ol>
+<div class="note">&#9432; Full access to the Fee Module requires the <strong>Admin</strong> or <strong>Finance Manager</strong> role. Class Teachers have read-only access to fee information.</div>
+<div class="screenshot">
+  <img src="images/Fee Module.png" alt="Fee Module screen" />
+  <div class="screenshot-caption">Fee Module — Main interface for managing school fees.</div>
+</div>
+<!-- STEP 1 -->
+<div class="step-box" id="step1">
+  <div class="step-title">Step 1 — Create Fee Types</div>
+</div>
+<p>Fee Types are the categories of fees your institution collects (e.g., Tuition Fee, Transport Fee, Exam Fee).</p>
+<ol>
+  <li>In the Financial module, click on <strong>Fee Types</strong>.</li>
+  <li>The <strong>Fee Type Master</strong> screen will open, showing existing fee types.</li>
+  <li>Click <strong>Add Fee Type</strong>.</li>
+  <li>Enter the <strong>Fee Type Name</strong> (e.g., "Tuition Fee", "Transport Fee", "Library Fee").</li>
+  <li>Enter a short <strong>Description</strong> (optional).</li>
+  <li>Set the <strong>Installment or Standard</strong> type to  <em>Active</em>.</li>
+  <li>Click <strong>Save</strong>. The fee type is now available for class fee structures.</li>
+</ol>
+<div class="note">&#9432; Fee Types are created at the branch level. We can copy fee types from one branch to another. I all branches share the same fee type catalog.</div>
+<div class="note">&#9432; Do not delete a fee type once it has been used in a class fee structure or student assignment. Deactivate it instead by toggling its Status to Inactive.</div>
+<div class="screenshot">
+  <img src="images/Create Fee Type.png" alt="Create Fee Type screen" />
+  <div class="screenshot-caption">Create Fee Type — Interface for adding new fee types.</div>
+</div>
+<!-- STEP 2 -->
+<div class="step-box" id="step2">
+  <div class="step-title">Step 2 — Configure Fee Installments</div>
+</div>
+<p>Installments define the payment schedule — which months fees are due and due dates.</p>
+<ol>
+  <li>In the Financial module, click on <strong>Fee Installments</strong>.</li>
+  <li>Select the <strong>Academic Year</strong> and <strong>Branch</strong>.</li>
+  <li>The installment setup shows the months from May to April (standard academic year cycle).</li>
+  <li>For each month, set:
+    <ul>
+      <li><strong>Installment Name</strong> — e.g., "May Installment", "June Installment".</li>
+      <li><strong>Start Date</strong> — The date when the installment becomes active.</li>
+      <li><strong>Last Date</strong> — The date by which payment is expected..</li>
+      <li><strong>Cut-off Date</strong> — The date before which the installment can get rebeate .</li>
+      <li><strong>Include in Fee</strong> — Toggle whether this month is billed.</li>
+    </ul>
+  </li>
+  <li> Click <strong> Generate Bulk Installments</strong> to create mulitple fee installments.</li>
+  <li>Click <strong>Save Installments</strong>.</li>
+</ol>
+<div class="note">&#9432; The installment schedule is created for all classes in a branch for a given academic year. Students get their dues month-by-month based on this schedule.</div>
+<div class="screenshot">
+  <img src="images/Fee installments.png" alt="Fee Installments screen" />
+  <div class="screenshot-caption">Fee Installments — Interface for configuring payment schedules.</div>
+</div>
+<!-- STEP 3 -->
+<div class="step-box" id="step3">
+  <div class="step-title">Step 3 — Set Up Class Fee Structure</div>
+</div>
+<p>Define the base fee amounts for each class and fee type.</p>
+<ol>
+  <li>In the Financial module, click on <strong>Class Fee Structure</strong>.</li>
+  <li>Select the <strong>Academic Fee</strong> or <strong>Existing Student Fee</strong>.</li>
+  <li>Click on <strong> Add Fee</strong></li>
+  <li>The screen will show drop down of Fee Types.</li>
+  <li>For each fee type combination, enter the <strong>Total Fee Amount</strong> (in Rupees).</li>
+  <ul>
+  <li><strong>Example:</strong> Class 6 Tuition (₹15,000) ÷ 6 Installments = <strong>₹2,500/month</strong>.</li>
+  </ul>
+  <li>After entering all amounts, click <strong>Save Fee Structure</strong>.</li>
+</ol>
+<div class="note">&#9432; The class fee structure serves as the default template. Individual student fees can be customized after the structure is set up.</div>
+<div class="note">&#9432; You can copy the fee structure to another branch by clicking <strong>Copy to Branch</strong>, selecting the target branch, and confirming.</div>
+<div class="screenshot">
+  <img src="images/Create class fee.png" alt="Create Class Fee screen" />
+  <div class="screenshot-caption">Create Class Fee — Interface for setting up class-specific fee structures.</div>
+</div>
+
+<!-- STEP 4 -->
+<div class="step-box" id="step4">
+  <div class="step-title">Step 4 — Assign Fees to Students</div>
+</div>
+<p>After setting the class fee structure, assign fees to individual students.</p>
+<h3>Auto-Assignment (Recommended)</h3>
+<ol>
+  <li>When a new student is enrolled (via Student Administration → Create Student), the system automatically assigns the class fee structure to the student.</li>
+  <li>No manual action is required for standard students.</li>
+</ol>
+<h3>Manual Assignment</h3>
+<ol>
+  <li>In the Financial module, go to <strong>Take Fee</strong> and search for the student.</li>
+  <li>If the student does not have fees assigned, click <strong>Assign Standard Fee</strong>.</li>
+  <li>The system will apply the class fee structure for the student's class.</li>
+  <li>Click <strong>Save</strong>.</li>
+</ol>
+<div class="note">&#9432; If a student is admitted mid-year, only the months from the admission month onward are billed. Previous months are automatically excluded.</div>
+
+<!-- STEP 5 -->
+<div class="step-box" id="step5">
+  <div class="step-title">Step 5 — Apply Concessions (Discounts / Waivers)</div>
+</div>
+<h3>5A — Create a Concession Master</h3>
+<ol>
+  <li>In the Financial module, click on <strong>Concession Master</strong>.</li>
+  <li>Click <strong>Add Concession</strong>.</li>
+  <li>Enter:
+    <ul>
+      <li><strong>Concession Name</strong> — e.g., "Sibling Discount", "Merit Scholarship", "Staff Ward Waiver".</li>
+      <li><strong>Concession Amount</strong> — Enter the flat amount (₹).</li>
+      <li><strong>Concession Dropdown</strong> — If it is Rebate concession check on fee payment dropdown.</li>
+      <li><strong>Applicable Fee Type</strong> — Select which fee type this applies to (Tuition, Transport, All).</li>
+    </ul>
+  </li>
+  <li>Click <strong>Save</strong>. The concession is now available to apply to students.</li>
+</ol>
+<div class="screenshot">
+  <img src="images/Create Concession.png" alt="Create Concession" />
+  <div class="screenshot-caption">Create Concession — Enter details for the new concession.</div>
+</div>
+<h3>5B — Apply Concession to a Student</h3>
+<ol>
+  <li>In the Financial module, click on <strong>Student Concession</strong>.</li>
+  <li>Search for the student by name or admission number.</li>
+  <li>Select the student from the results.</li>
+  <li>Click <strong>Apply Concession</strong>.</li>
+  <li>Select the <strong>Concession</strong> from the dropdown (created in 5A).</li>
+  <li>Select the <strong>Fee Type</strong> to which the concession applies.</li>
+  <li>Enter the <strong>Effective From Month</strong> (e.g., June 2025).</li>
+  <li>Click <strong>Save</strong>. The concession will be reflected in the student's fee dues from the selected month.</li>
+</ol>
+<div class="note">&#9432; Multiple concessions cannot beapplied to a single student (e.g., sibling discount + merit scholarship). The system calculates the combined discounted fee automatically.</div>
+<div class="screenshot">
+  <img src="images/Apply Concession.png" alt="Apply Concession" />
+  <div class="screenshot-caption">Apply Concession — Select the concession and fee type for the student.</div>
+</div>
+
+<!-- STEP 6 -->
+<div class="step-box" id="step6">
+  <div class="step-title">Step 6 — Assign Special Fees</div>
+</div>
+<p>Special fees are one-time or non-recurring charges (e.g., Admission Fee, Uniform Fee, Exam Registration).</p>
+<ol>
+  <li>In the Financial module, click on <strong>Assign Special Fee</strong>.</li>
+  <li>Search for the student.</li>
+  <li>Click <strong>Add Special Fee</strong>.</li>
+  <li>Select the <strong>Fee Type</strong> (create a special fee type in Fee Types if not already available).</li>
+  <li>Enter the <strong>Amount</strong>.</li>
+  <li>Enter a <strong>Description / Remark</strong> (e.g., "Annual Day Contribution").</li>
+  <li>Set the <strong>Due Date</strong>.</li>
+  <li>Click <strong>Save</strong>. The special fee will appear in the student's outstanding dues.</li>
+</ol>
+<div class="screenshot">
+  <img src="images/Assign Special Fee.png" alt="Assign Special Fee" />
+  <div class="screenshot-caption">Assign Special Fee — Enter details for the new special fee.</div>
+</div>
+
+<!-- STEP 7 -->
+<div class="step-box" id="step7">
+  <div class="step-title">Step 7 — Collect Fee Payment (Take Fee)</div>
+</div>
+<p>The Take Fee screen is used daily by the accounts staff to record student fee payments.</p>
+<ol>
+  <li>In the Financial module, click on <strong>Take Fee</strong>.</li>
+  <li>Search for the student using their <strong>Name</strong> or <strong>Admission Number</strong>.</li>
+  <li>Click on the student's name from the search results.</li>
+  <li>The <strong>Student Fee Details</strong> screen will open showing:
+    <ul>
+      <li>Fee Dues Month-wise (Pending installments)</li>
+      <li>Special Fees pending</li>
+      <li>Previous payment history</li>
+      <li>Total Outstanding Amount</li>
+    </ul>
+  </li>
+  <li>Select the installment(s) or fees the student is paying.</li>
+  <li>Enter the <strong>Amount Paid</strong>.</li>
+  <li>Select the <strong>Payment Mode</strong>:
+    <ul>
+      <li>Cash</li>
+      <li>Online / UPI</li>
+      <li>Bank Transfer</li>
+      <li>Cheque</li>
+    </ul>
+  </li>
+  <li>Enter the <strong>Payment Date</strong> (defaults to today).</li>
+  <li>Enter any <strong>Remarks</strong> or reference number (optional).</li>
+  <li>Click <strong>Collect Payment</strong>.</li>
+  <li>A <strong>Fee Receipt</strong> is automatically generated with a unique receipt number.</li>
+</ol>
+<div class="note">&#9432; A receipt is generated immediately after clicking Collect Payment. Use the Print Receipt button to print it for the student/parent.</div>
+<div class="screenshot">
+  <img src="images/Collect Fee.png" alt="Collect Fee" />
+  <div class="screenshot-caption">Collect Fee — Enter payment details for the student.</div>
+</div>
+<!-- STEP 8 -->
+<div class="step-box" id="step8">
+  <div class="step-title">Step 8 — View Fee Receipt</div>
+</div>
+<ol>
+  <li>After collecting payment, click <strong>Print Receipt</strong> on the confirmation screen.</li>
+  <li>To view a past receipt:
+    <ul>
+      <li>Go to Take Fee → search the student → open their profile.</li>
+      <li>In the payment history section, find the Print/Cancel and click <strong>View Receipt</strong>.</li>
+    </ul>
+  </li>
+  <li>The receipt includes: Receipt Number, Student Name, Class, Payment Date, Amount Paid, Mode of Payment, Fee Type breakdown, and School Seal / Signature area.</li>
+  <li>Click <strong>Print</strong> to print the receipt. Set Scale to 100% and Paper Size to A4.</li>
+</ol>
+<div class="screenshot">
+  <img src="images/View fee receipt.png" alt="View Fee Receipt" />
+  <div class="screenshot-caption">View Fee Receipt — Details of the collected fee payment.</div>
+</div>
+<!-- STEP 9 -->
+<div class="step-box" id="step9">
+  <div class="step-title">Step 9 — Cancel / Delete a Payment</div>
+</div>
+<ol>
+  <li>Open the student's fee profile via Take Fee → Search Student.</li>
+  <li>In the Payment History section, locate the Print/Cancel option.</li>
+  <li>Click the <strong>Delete / Cancel</strong> icon next to the payment.</li>
+  <li>Enter a <strong>Reason for Cancellation</strong> (mandatory).</li>
+  <li>Click <strong>Confirm</strong>.</li>
+  <li>The payment is reversed and the student's dues are updated accordingly. A cancellation audit entry is created.</li>
+</ol>
+<div class="warn">&#9888; <strong>Warning:</strong> Payment cancellation is permanent and cannot be undone. Ensure the correct payment is selected before confirming cancellation. Only Admin and Finance Manager roles can cancel payments.</div>
+<div class="screenshot">
+  <img src="images/cancel fee.png" alt="Cancel Fee" />
+  <div class="screenshot-caption">Cancel Fee — Select a payment to cancel and enter a reason.</div>
+</div>
+<div class="screenshot">
+  <img src="images/update student fee.png" alt="Update Student Fee" />
+  <div class="screenshot-caption">Update Student Fee — Modify the fee structure for a specific student.</div>
+</div>
+<!-- STEP 10 -->
+<div class="step-box" id="step10">
+  <div class="step-title">Step 10 — Update Student Fee Structure</div>
+</div>
+<p>If a student's class changes or fee revision is needed mid-year:</p>
+<ol>
+  <li>In the Financial module, click on <strong>Update Student Fee Structure</strong>.</li>
+  <li>Search for the student.</li>
+  <li>The current fee structure assigned to the student will display.</li>
+  <li>Modify the <strong>Amount</strong> for any fee type as required.</li>
+  <li>Set the <strong>Effective From Month</strong> for the change.</li>
+  <li>Click <strong>Save</strong>. Future invoices will reflect the updated amount from the selected month.</li>
+</ol>
+<div class="note">&#9432; Past payments are NOT affected by fee structure updates. Only future unpaid installments are adjusted.</div>
+
+<!-- STEP 11 -->
+<div class="step-box" id="step11">
+  <div class="step-title">Step 11 — Fee Reports</div>
+</div>
+<p>The Fee Reports section provides analytics on fee collection and dues.</p>
+<ol>
+  <li>In the Financial module, click on <strong>Fee Reports</strong>.</li>
+  <li>Select the type of report:
+    <ul>
+      <li><strong>Today's Collection</strong> — All payments received today across the selected branch.</li>
+      <li><strong>Daily Fee Report</strong> — Collections for a specific date range.</li>
+      <li><strong>Monthly Fee Report</strong> — Month-wise collection summary.</li>
+      <li><strong>Fee Due Report</strong> — Students with outstanding dues (can filter by class, month).</li>
+      <li><strong>Concession Report</strong> — Summary of all applied concessions.</li>
+    </ul>
+  </li>
+  <li>Set the required filters (Branch, Academic Year, Class, Date Range).</li>
+  <li>Click <strong>Get Report</strong>.</li>
+  <li>Results are displayed in a table. Click <strong>Download Excel</strong> or <strong>Print</strong> to export.</li>
+</ol>
+<div class="screenshot">
+  <img src="images/Fee Reports.png" alt="Fee Reports" />
+  <div class="screenshot-caption">Fee Reports — Summary of fee collections and dues across selected branches.</div>
+</div>
+
+<!-- LATE FEE -->
+<div class="step-box" id="late-fee">
+  <div class="step-title">Late Fee Configuration</div>
+</div>
+<p>The system supports automatic late fee charges for overdue installments.</p>
+<ol>
+  <li>Go to <strong>Setup Your School → Fee Configuration</strong> (or Financial module configuration).</li>
+  <li>Enable <strong>Late Fee</strong>.</li>
+  <li>Set the <strong>Grace Period</strong> (number of days after due date before late fee kicks in).</li>
+  <li>Set the <strong>Late Fee Amount</strong> — either a flat amount (₹) or a percentage of the due amount per month.</li>
+  <li>Click <strong>Save</strong>.</li>
+  <li>When a student pays after the due date + grace period, the late fee is automatically added to the total amount due on the Take Fee screen.</li>
+</ol>
+<div class="note">&#9432; Late fees can be waived for a specific student at the time of payment by clicking <em>Waive Late Fee</em> on the Take Fee screen (Admin / Finance Manager only).</div>
+
+<!-- SUMMARY TABLE -->
+<h2>Fee Module — Workflow Summary</h2>
+<table>
+  <tr>
+    <th>Step</th>
+    <th>Action</th>
+    <th>Who</th>
+    <th>When</th>
+  </tr>
+  <tr><td>1</td><td>Create Fee Types</td><td>Admin</td><td>Once per year / as needed</td></tr>
+  <tr><td>2</td><td>Set Class Fee Structure</td><td>Admin / Finance Manager</td><td>Start of academic year</td></tr>
+  <tr><td>3</td><td>Configure Installments</td><td>Admin / Finance Manager</td><td>Start of academic year</td></tr>
+  <tr><td>4</td><td>Assign Fees to Students</td><td>Auto (on enrollment)</td><td>When student enrolls</td></tr>
+  <tr><td>5</td><td>Apply Concessions</td><td>Admin / Finance Manager</td><td>As approved</td></tr>
+  <tr><td>6</td><td>Assign Special Fees</td><td>Admin / Finance Manager</td><td>As needed</td></tr>
+  <tr><td>7</td><td>Collect Fee Payment</td><td>Accountant / Admin</td><td>Daily / on student visit</td></tr>
+  <tr><td>8</td><td>Print Fee Receipt</td><td>Accountant</td><td>After each payment</td></tr>
+  <tr><td>11</td><td>Generate Fee Reports</td><td>Admin / Accountant</td><td>Daily / Monthly</td></tr>
+</table>
+
+<br/><hr/>
+<p style="text-align:center; color:#888; font-size:12px;">MS Hifz Academy ERP — Fee Module Documentation &nbsp;|&nbsp; Version 1.0 &nbsp;|&nbsp; 2025–2026</p>
+</body>
+</html>

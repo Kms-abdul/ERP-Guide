@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Academic Module – MS Hifz Academy ERP</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 40px; color: #222; font-size: 14px; }
+  h1 { color: #1a56a0; font-size: 24px; border-bottom: 3px solid #1a56a0; padding-bottom: 8px; }
+  h2 { color: #1a56a0; font-size: 18px; margin-top: 36px; }
+  h3 { color: #333; font-size: 15px; margin-top: 20px; }
+  .module-title { background: #1a56a0; color: #fff; padding: 14px 24px; font-size: 20px; font-weight: bold; margin-bottom: 30px; border-radius: 4px; }
+  .step-box { border-left: 4px solid #1a56a0; padding: 10px 18px; margin: 18px 0; background: #f4f8ff; border-radius: 0 6px 6px 0; }
+  .step-title { font-weight: bold; font-size: 16px; color: #1a56a0; margin-bottom: 6px; }
+  ol li, ul li { margin-bottom: 7px; line-height: 1.6; }
+  .note { background: #fff8e1; border-left: 4px solid #f9a825; padding: 8px 14px; margin: 12px 0; border-radius: 0 4px 4px 0; font-size: 13px; }
+  .warn { background: #fdecea; border-left: 4px solid #c62828; padding: 8px 14px; margin: 12px 0; border-radius: 0 4px 4px 0; font-size: 13px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; }
+  th { background: #1a56a0; color: #fff; padding: 8px 12px; text-align: left; }
+  td { border: 1px solid #ddd; padding: 7px 12px; }
+  tr:nth-child(even) { background: #f4f8ff; }
+  .toc { background: #f0f4ff; border: 1px solid #c5d5f5; border-radius: 6px; padding: 16px 24px; margin-bottom: 30px; }
+  .toc a { color: #1a56a0; text-decoration: none; display: block; margin: 4px 0; }
+  .toc a:hover { text-decoration: underline; }
+  .screenshot { margin: 20px 0; text-align: center; }
+  .screenshot img { max-width: 100%; border: 1px solid #ccc; border-radius: 6px; box-shadow: 0 2px 10px rgba(0,0,0,0.12); }
+  .screenshot-caption { font-size: 12px; color: #666; margin-top: 6px; font-style: italic; }
+  .arrow { color: #1a56a0; font-weight: bold; font-size: 15px; }
+  @media print { body { margin: 20px; } }
+</style>
+</head>
+<body>
+
+<div class="module-title">MS HIFZ ACADEMY ERP — Academic Module</div>
+
+<h1>Academic Module</h1>
+<p>This document covers the complete workflow for managing academics in the MS Hifz Academy ERP — from creating subjects and test types, to assigning subjects and tests to classes and students, entering marks, configuring grading scales, setting exam attendance, and generating student report cards.</p>
+
+<div class="toc">
+  <strong>Contents</strong>
+  <a href="#login">Login to the Portal</a>
+  <a href="#navigate">Navigate to Academic Module</a>
+  <a href="#step1">Step 1 – Create Subjects (Subject Master)</a>
+  <a href="#step2">Step 2 – Assign Subjects to Classes</a>
+  <a href="#step3">Step 3 – Assign Subjects to Students</a>
+  <a href="#step4">Step 4 – Create Test Types</a>
+  <a href="#step5">Step 5 – Assign Tests to Classes (Add Exam)</a>
+  <a href="#step5b">Step 5B – Assign Subjects to Tests</a>
+  <a href="#step6">Step 6 – Assign Tests to Students</a>
+  <a href="#step7">Step 7 – Configure Grading Scale</a>
+  <a href="#step8">Step 8 – Enter or Upload Student Marks</a>
+  <a href="#step9">Step 9 – Set Exam Attendance</a>
+  <a href="#step10">Step 10 – Generate Report Cards</a>
+  <a href="#summary">Workflow Summary</a>
+</div>
+
+<!-- LOGIN -->
+<h2 id="login">Login to the Portal</h2>
+<ol>
+  <li>Open a web browser and navigate to the MS Hifz Academy ERP portal URL.</li>
+  <li>Enter your <strong>Username</strong> and <strong>Password</strong>, then click <strong>Login</strong>.</li>
+  <li>The main Dashboard will open. From the <strong>Branch Selector</strong> in the top header, select the required branch.</li>
+  <li>You can also select <em>All Locations</em> to manage data across all branches.</li>
+</ol>
+
+<div class="screenshot">
+  <img src="images/Academic login.png" alt="ERP Dashboard after login" />
+  <div class="screenshot-caption">Dashboard — After login, select the required Branch from the top header, then click on Academic in the left sidebar.</div>
+</div>
+
+<!-- NAVIGATE -->
+<h2 id="navigate">Navigate to Academic Module</h2>
+<ol>
+  <li>In the left sidebar, click on <strong>Academic</strong>.</li>
+  <li>The <strong>Academics Management</strong> screen opens.</li>
+  <li>The top navigation bar shows the following menus:
+    <ul>
+      <li><strong>Enter Marks</strong> — For entering or uploading student marks.</li>
+      <li><strong>Config</strong> — Configuration settings.</li>
+      <li><strong>Academic Actions</strong> — For assigning subjects, tests, and setting exam attendance.</li>
+      <li><strong>Masters</strong> — For creating subjects, test types, adding exams, and grading.</li>
+      <li><strong>Reports</strong> — For generating student report cards and academic reports.</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="screenshot">
+  <img src="images/Academic Management.png" alt="Academic module top navigation menus" />
+  <div class="screenshot-caption">Academic Module — Top navigation showing Enter Marks, Config, Academic Actions, Masters, and Reports menus.</div>
+</div>
+
+<!-- STEP 1 -->
+<div class="step-box" id="step1">
+  <div class="step-title">Step 1 — Create Subjects (Subject Master)</div>
+</div>
+<p>Subjects are the foundation of the academic module. All subjects used across all branches are created here.</p>
+<ol>
+  <li>Click on the <strong>Masters</strong> dropdown in the top navigation.</li>
+  <li>Click on <strong>Subjects</strong>.</li>
+  <li>The <strong>Subject Master</strong> screen opens, showing all existing subjects.</li>
+  <li>To create a new subject:
+    <ul>
+      <li>Enter the <strong>Subject Name</strong> in the input field (e.g., <em>Hadees</em>, <em>Mathematics</em>, <em>English</em>).</li>
+      <li>Select the <strong>Subject Group</strong> from the dropdown:
+        <ul>
+          <li><em>Academic</em> — For standard school subjects (English, Hindi, Mathematics, Telugu, etc.)</li>
+          <li><em>Hifz</em> — For Islamic / Hifz subjects (Quran, Deoniyath, Islam, Hadees, etc.)</li>
+        </ul>
+      </li>
+      <li>Click <strong>Add Subject</strong>.</li>
+    </ul>
+  </li>
+  <li>The new subject appears in the subjects list below with its Group, Status, and Action buttons.</li>
+</ol>
+
+<div class="note">&#9432; <strong>Important Rules for Subject Master:</strong>
+  <ul>
+    <li>Subjects are created for the entire Academic Year and apply to ALL branches — not per individual branch.</li>
+    <li>When the subject <strong>Status is Active</strong>, only then can it be assigned to classes.</li>
+    <li>A subject <strong>cannot be deleted</strong> once it is assigned to any branch or class.</li>
+    <li>Subject Master is accessible only by <strong>Admin</strong> credentials.</li>
+  </ul>
+</div>
+
+<div class="screenshot">
+  <img src="images/Create subject.png" alt="Subject Master screen showing subject list" />
+  <div class="screenshot-caption">Subject Master — Enter Subject Name, select Group (Academic / Hifz), then click Add Subject. Active subjects appear in the list below.</div>
+</div>
+
+<!-- STEP 2 -->
+<div class="step-box" id="step2">
+  <div class="step-title">Step 2 — Assign Subjects to Classes</div>
+</div>
+<p>After creating subjects, assign them to the relevant classes for each branch.</p>
+<ol>
+  <li>Click on <strong>Academic Actions</strong> dropdown in the top navigation.</li>
+  <li>Click on <strong>Assign Class Subjects</strong>.</li>
+  <li>The <strong>Class-Subject Assignment</strong> screen opens.</li>
+  <li>Set the filters:
+    <ul>
+      <li><strong>Academic Year</strong> (e.g., 2025–2026)</li>
+      <li><strong>Branch</strong> (e.g., Murad Nagar)</li>
+      <li><strong>Subject Group</strong> — Select <em>Academic</em> or <em>Hifz</em></li>
+    </ul>
+  </li>
+  <li>A grid appears with <strong>Subjects as rows</strong> and <strong>Classes as columns</strong>.</li>
+  <li>Check the checkbox at the intersection of a Subject and Class to assign that subject to that class.</li>
+  <li>Use the <strong>✓ All</strong> column header checkbox to assign a subject to all classes at once.</li>
+  <li>Use the <strong>Check/Uncheck All</strong> button on each subject row to quickly assign or remove all classes.</li>
+  <li>Click <strong>Save Assignments</strong> to save.</li>
+</ol>
+<div class="note">&#9432; Repeat this step for both <em>Academic</em> and <em>Hifz</em> subject groups by changing the Subject Group filter.</div>
+<div class="note">&#9432; To copy the same subject-class assignments to other branches, click <strong>Copy to Branches</strong> at the bottom left, select the target branches, and confirm.</div>
+
+<div class="screenshot">
+  <img src="images/Assign subject to classes.png" alt="Class-Subject Assignment grid" />
+  <div class="screenshot-caption">Assign Class Subjects — Check boxes at Subject × Class intersections to assign. Click Save Assignments when done. Use Copy to Branches to replicate to other branches.</div>
+</div>
+
+<!-- STEP 3 -->
+<div class="step-box" id="step3">
+  <div class="step-title">Step 3 — Assign Subjects to Students</div>
+</div>
+<p>After assigning subjects to classes, individually assign which subjects each student will study.</p>
+<ol>
+  <li>Click on <strong>Academic Actions</strong> dropdown.</li>
+  <li>Click on <strong>Assign Student Subjects</strong>.</li>
+  <li>The <strong>Assign Student-Subjects</strong> screen opens.</li>
+  <li>Set the filters:
+    <ul>
+      <li><strong>Academic Year</strong></li>
+      <li><strong>Branch</strong></li>
+      <li><strong>Class</strong> (e.g., 6)</li>
+      <li><strong>Section</strong> (e.g., A)</li>
+      <li><strong>Subject Type</strong> — Select <em>Academic</em> or <em>Hifz</em> using the radio buttons.</li>
+    </ul>
+  </li>
+  <li>The student list for the selected class/section appears with subject columns.</li>
+  <li>Check the subject checkbox(es) for each student to assign that subject to them.</li>
+  <li>Use the column header checkboxes to assign a subject to all students at once.</li>
+  <li>Use the <strong>All</strong> column to assign all subjects to a student in one click.</li>
+  <li>Click <strong>Save Assignments</strong>.</li>
+  <li>Students are now eligible to write the subject test.</li>
+</ol>
+<div class="note">&#9432; A student must be assigned a subject here before they can be assigned to a test for that subject (Step 6). If a student is not assigned to a subject, they will not appear in the marks entry for that subject.</div>
+
+<div class="screenshot">
+  <img src="images/Assign subject to students.png" alt="Assign Student Subjects screen" />
+  <div class="screenshot-caption">Assign Student Subjects — Select Class, Section, Subject Type. Check subject boxes per student. Click Save Assignments. Students are now eligible to write subject tests.</div>
+</div>
+
+<!-- STEP 4 -->
+<div class="step-box" id="step4">
+  <div class="step-title">Step 4 — Create Test Types</div>
+</div>
+<p>Test Types define the different types of assessments conducted during the academic year (e.g., FA-1, SA-1, Unit Test, Quarterly).</p>
+<ol>
+  <li>Click on the <strong>Masters</strong> dropdown in the top navigation.</li>
+  <li>Click on <strong>Create Test</strong>.</li>
+  <li>The <strong>Create-TestType</strong> screen opens showing all existing test types.</li>
+  <li>Click <strong>+ Add Test Type</strong> button (top right).</li>
+  <li>The <strong>Add Test Type</strong> dialog opens. Fill in:
+    <ul>
+      <li><strong>Test Name</strong> — Enter the test name (e.g., <em>FA-1</em>, <em>Unit Test-1</em>, <em>Summative Assessment-2</em>, <em>Quarterly</em>).</li>
+      <li><strong>Max Marks (Ref)</strong> — Enter the reference maximum marks for this test (e.g., 50, 100).</li>
+      <li><strong>Display Order</strong> — Set the order in which tests are conducted (leave blank for auto-increment).</li>
+    </ul>
+  </li>
+  <li>Click <strong>Save</strong>.</li>
+  <li>The new test type appears in the list with its Order, Test Name, Max Marks, Status (Active), and Edit action.</li>
+</ol>
+<div class="note">&#9432; Create Test Type is accessible only for <strong>Admin</strong> credentials.</div>
+<div class="note">&#9432; The Max Marks set here is a reference value. The actual marks per subject are set when assigning subjects to tests (Step 5B).</div>
+
+<div class="screenshot">
+  <img src="images/create test.png" alt="Create TestType screen with Add Test Type dialog" />
+  <div class="screenshot-caption">Create Test Type — Masters → Create Test → Click + Add Test Type. Enter Test Name and Max Marks, then click Save.</div>
+</div>
+
+<!-- STEP 5 -->
+<div class="step-box" id="step5">
+  <div class="step-title">Step 5 — Assign Tests to Classes (Add Exam)</div>
+</div>
+<p>After creating test types, assign which tests are conducted for each class.</p>
+<ol>
+  <li>Click on the <strong>Masters</strong> dropdown in the top navigation.</li>
+  <li>Click on <strong>Add Exam</strong>.</li>
+  <li>The <strong>Assign Tests to Classes</strong> screen opens, showing a grid of Classes × Test Types.</li>
+  <li>The filters auto-populate with the current <strong>Academic Year</strong> and <strong>Branch</strong>.</li>
+  <li>In the grid:
+    <ul>
+      <li><strong>Rows</strong> = Classes (4, 5, 6, 7, 8, etc.)</li>
+      <li><strong>Columns</strong> = Test Types (FA-1, SA-1, Unit Test-1, Quarterly, etc.)</li>
+    </ul>
+  </li>
+  <li>Check the checkbox at the intersection to assign that test to that class.</li>
+  <li>In the checkbox, you can also enter the <strong>Order</strong> (sequence number) for how the test is conducted within that class (e.g., 1, 2, 3, 4).</li>
+  <li>After selecting all required class-test combinations, click <strong>Save Test</strong>.</li>
+  <li>After saving, you can proceed to assign subjects to tests (Step 5B).</li>
+</ol>
+<div class="note">&#9432; Click <strong>Copy to Branches</strong> at the bottom left to replicate the same test assignments to other branches.</div>
+
+<div class="screenshot">
+  <img src="images/Assign Test to classes.png" alt="Assign Tests to Classes grid" />
+  <div class="screenshot-caption">Add Exam — Grid of Classes × Test Types. Check the boxes and set order numbers. Click Save Test when done.</div>
+</div>
+
+<!-- STEP 5B -->
+<div class="step-box" id="step5b">
+  <div class="step-title">Step 5B — Assign Subjects to Tests</div>
+</div>
+<p>After assigning tests to classes, specify which subjects are included in each test and set their individual max marks.</p>
+<ol>
+  <li>This screen opens automatically after saving tests in Step 5, or navigate to <strong>Academic Actions → Assign Subject Tests</strong>.</li>
+  <li>Set the filters:
+    <ul>
+      <li><strong>Academic Year</strong></li>
+      <li><strong>Branch</strong></li>
+      <li><strong>Class</strong> (e.g., 6)</li>
+      <li><strong>Test</strong> (e.g., Formative Assessment – 2)</li>
+      <li><strong>Subject Type</strong> — All Types / Academic / Hifz</li>
+    </ul>
+  </li>
+  <li>The screen shows the <strong>Test Max Marks</strong> (total reference marks for this test) at the top left.</li>
+  <li>The subject list shows all subjects assigned to this class (Step 2), with columns: Subject Name, Type, Assigned (checkbox), Max Marks, Order.</li>
+  <li>For each subject to include in this test:
+    <ul>
+      <li>Check the <strong>Assigned</strong> checkbox.</li>
+      <li>Enter the <strong>Max Marks</strong> for that subject (e.g., English = 10, Hindi = 10, Mathematics = 10).</li>
+      <li>Enter the <strong>Order</strong> in which the subject appears on the report card (e.g., 1, 2, 3, 4, 5, 6).</li>
+    </ul>
+  </li>
+  <li>The <strong>Total Assigned</strong> (sum of all subject max marks) must equal the <strong>Test Max Marks</strong>.</li>
+  <li>Click <strong>Save Assignments</strong>.</li>
+</ol>
+<div class="note">&#9432; <strong>Rule:</strong> Total of all Subject Max Marks = Total Test Max Marks. For example: if FA-1 has 50 total marks and 6 subjects, distribute the 50 marks across the subjects (e.g., English 10 + Hindi 10 + Islam 5 + Mathematics 10 + Quran 5 + Telugu 10 = 50).</div>
+<div class="note">&#9432; This tab is accessible only for <strong>Admin</strong> credentials.</div>
+<div class="note">&#9432; Click <strong>Copy Structure</strong> (top right) to copy the same subject-test mapping to other tests or classes.</div>
+
+<div class="screenshot">
+  <img src="images/Assign Subject Tests.png" alt="Assign Subjects to Test screen with max marks entry" />
+  <div class="screenshot-caption">Assign Subjects to Test — Check subjects, enter Max Marks and Order per subject. Total assigned marks must equal Test Max Marks. Click Save Assignments.</div>
+</div>
+
+<!-- STEP 6 -->
+<div class="step-box" id="step6">
+  <div class="step-title">Step 6 — Assign Tests to Students</div>
+</div>
+<p>After assigning tests to classes, specify which students in each class are assigned to each test.</p>
+<ol>
+  <li>Click on <strong>Academic Actions</strong> dropdown.</li>
+  <li>Click on <strong>Assign Test to Students</strong>.</li>
+  <li>The <strong>Assign Test to Students</strong> screen opens.</li>
+  <li>Set the filters:
+    <ul>
+      <li><strong>Academic Year</strong></li>
+      <li><strong>Branch</strong></li>
+      <li><strong>Class</strong> (e.g., 6)</li>
+    </ul>
+  </li>
+  <li>The student list for the class appears with test columns (FA-1, Formative Assessment-2, etc.).</li>
+  <li>Check the checkbox for each student under the test(s) they are assigned to write.</li>
+  <li>Students not checked for a test will not appear in the marks entry for that test.</li>
+  <li>Click <strong>Save Assignments</strong>.</li>
+  <li>Tests are now assigned to the selected students.</li>
+</ol>
+<div class="note">&#9432; New students enrolled after the initial assignment will need to be assigned to tests manually from this screen.</div>
+
+<div class="screenshot">
+  <img src="images/Assign test to students.png" alt="Assign Test to Students screen" />
+  <div class="screenshot-caption">Assign Test to Students — Student list with test columns. Check the test checkbox for each student. Click Save Assignments.</div>
+</div>
+
+<!-- STEP 7 -->
+<div class="step-box" id="step7">
+  <div class="step-title">Step 7 — Configure Grading Scale</div>
+</div>
+<p>Grading scales define how numerical marks are converted to letter grades on the report card.</p>
+<h3>7A — Create a Grade Scale</h3>
+<ol>
+  <li>Click on the <strong>Masters</strong> dropdown.</li>
+  <li>Click on <strong>Grading</strong>.</li>
+  <li>The <strong>Grade Scale Master</strong> screen opens. Existing scales are listed in the Grade Scale List below.</li>
+  <li>To create a new scale, fill in the left panel:
+    <ul>
+      <li><strong>Scale Name</strong> — Enter a name (e.g., <em>GradeScale-20 Marks</em>, <em>GradeScale-100 Marks</em>).</li>
+      <li><strong>Total Marks</strong> — Enter the total marks this scale applies to (e.g., 20, 50, 100).</li>
+      <li><strong>Scale Description</strong> — Optional description.</li>
+    </ul>
+  </li>
+  <li>Click <strong>Save</strong>. The new scale appears in the Grade Scale List.</li>
+</ol>
+<div class="screenshot">
+  <img src="images/creating grading.png" alt="Creating Grading Scale" />
+  <div class="screenshot-caption">Creating Grading Scale — Enter scale name, total marks, and description.</div>
+</div>
+<h3>7B — Add Grades to the Scale</h3>
+<ol>
+  <li>In the Grade Scale List, click the <strong>Edit (pencil)</strong> icon next to the scale you created.</li>
+  <li>The right panel shows the <strong>Grade Scale Details</strong> with a table of grades.</li>
+  <li>Click the <strong>+</strong> button to add a new grade row.</li>
+  <li>For each grade, enter:
+    <ul>
+      <li><strong>Grade</strong> — Letter grade (e.g., A1, A2, B1, B2, C, D, E).</li>
+      <li><strong>Min</strong> — Minimum marks to achieve this grade.</li>
+      <li><strong>Maximum</strong> — Maximum marks for this grade range.</li>
+      <li><strong>Description</strong> — Optional label (e.g., Excellent, Good, Pass).</li>
+    </ul>
+  </li>
+  <li>Add all grade rows covering the full range from 0 to Total Marks.</li>
+  <li>Click <strong>Update</strong> or <strong>Save</strong> to save the grade scale.</li>
+  <li>These grades will reflect automatically based on the marks entered for each student.</li>
+</ol>
+<div class="note">&#9432; Example grade scale for 20 marks: E (0–6), D (7–9), C (10–11), B2 (12–13), B1 (14–15), A2 (16–17), A1 (18–20).</div>
+<div class="note">&#9432; The system automatically assigns the correct grade to a student based on their entered marks and this scale during marks entry.</div>
+
+<div class="screenshot">
+  <img src="images/adding grading.png" alt="Grade Scale Master and Grade Scale Details" />
+  <div class="screenshot-caption">Grading — Create a Scale with Name and Total Marks, then click the Edit icon to add grade rows (Grade, Min, Max). Click Update to save the complete scale.</div>
+</div>
+
+<!-- STEP 8 -->
+<div class="step-box" id="step8">
+  <div class="step-title">Step 8 — Enter or Upload Student Marks</div>
+</div>
+<h3>8A — Subject-Wise Marks Entry & ALL Subjects -Wise Marks Entry</h3>
+<ol>
+  <li>Click on <strong>Enter Marks</strong> dropdown in the top navigation.</li>
+  <li>Click on <strong>Subject Wise</strong>.</li>
+  <li>The <strong>Enter Subject Marks</strong> screen opens.</li>
+  <li>Set the filters:
+    <ul>
+      <li><strong>Branch</strong> (e.g., Murad Nagar)</li>
+      <li><strong>Class</strong> (e.g., 6)</li>
+      <li><strong>Section</strong> (e.g., A)</li>
+      <li><strong>Test</strong> (e.g., FA-1)</li>
+      <li><strong>Subject</strong> (e.g., English)</li>
+    </ul>
+  </li>
+  <li>Click <strong>Get Marks</strong>.</li>
+  <li>The student list loads showing: S.No, Roll No, Admission No, Student Name, Marks field, Grade, and Status.</li>
+  <li>The <strong>Max Marks</strong> for the selected subject/test is shown at the top (e.g., Max Marks: 20).</li>
+  <li>For each student, enter their marks in the <strong>Marks</strong> field:
+    <ul>
+      <li>Enter a numeric value between 0 and the Max Marks. The <strong>Grade</strong> auto-calculates and the <strong>Status</strong> shows <em>Present</em>.</li>
+      <li>For absent students, enter <strong>AB</strong> or <strong>ab</strong> only. The Grade will be blank and Status will show <em>Absent</em>.</li>
+    </ul>
+  </li>
+  <li>Click <strong>Save Marks</strong> to save all entries.</li>
+  <li>Optionally click <strong>Download Excel</strong> to download a template or existing marks data.</li>
+</ol>
+
+<div class="note">&#9432; Valid absent values: <strong>AB</strong> or <strong>ab</strong> only. Any other non-numeric entry will be rejected.</div>
+<div class="note">&#9432; The Grade shown next to each student's marks is auto-calculated using the Grade Scale configured in Step 7.</div>
+
+<div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 10px;">
+  <div style="flex: 1;">
+    <img src="images/enter subject wise.png" alt="Enter Subject Wise Marks screen" style="width: 100%; height: auto; border: 1px solid #ddd;">
+  </div>
+  <div style="flex: 1;">
+    <img src="images/all subject wise.png" alt="All Subjects Wise Marks screen" style="width: 100%; height: auto; border: 1px solid #ddd;">
+  </div>
+</div>
+
+<h3>8B — Upload Marks via Excel</h3>
+<ol>
+  <li>Click on <strong>Enter Marks</strong> dropdown.</li>
+  <li>Click on <strong>Upload Exam Marks</strong>.</li>
+  <li>The <strong>Import Subject Marks</strong> screen opens.</li>
+  <li>Set the filters:
+    <ul>
+      <li><strong>Select Class</strong></li>
+      <li><strong>Select Schedule Test</strong> (Test Type)</li>
+      <li><strong>Select Subject</strong></li>
+    </ul>
+  </li>
+  <li>Click <strong>Download Template</strong>. An Excel file downloads with pre-filled student details (Student ID, Roll No, Admission No, Student Name) and a blank Marks column.</li>
+  <li>Open the template and enter marks in the <strong>Marks</strong> column for each student.</li>
+  <li>Follow the instructions in the template:
+    <ul>
+      <li>Do not modify template structure or column headers.</li>
+      <li>Only 80 records accepted per upload.</li>
+      <li>Data must be in valid format.</li>
+      <li>For absent, enter <strong>AB</strong> in the Marks column.</li>
+    </ul>
+  </li>
+  <li>Save the Excel file.</li>
+  <li>Click <strong>Choose File</strong>, select the completed file.</li>
+  <li>Click <strong>Upload Excel</strong>.</li>
+  <li>Student marks are uploaded and saved successfully.</li>
+</ol>
+
+<div class="screenshot">
+  <img src="images/download the template.png" alt="Upload Exam Marks screen and Excel template" />
+  <div class="screenshot-caption">Upload Exam Marks — Select Class, Test, Subject, then Download Template. Fill marks in Excel and Upload Excel. Marks are imported for all students.</div>
+</div>
+
+<!-- STEP 9 -->
+<div class="step-box" id="step9">
+  <div class="step-title">Step 9 — Set Exam Attendance</div>
+</div>
+<p>Set Exam Attendance links specific attendance months to an exam. The linked months' attendance will appear in the attendance section of the student's report card for that exam.</p>
+<ol>
+  <li>Click on <strong>Academic Actions</strong> dropdown.</li>
+  <li>Click on <strong>Set Exam Attendance</strong>.</li>
+  <li>Set the filters:
+    <ul>
+      <li><strong>Academic Year</strong> (e.g., 2025–2026)</li>
+      <li><strong>Branch</strong> (e.g., Murad Nagar)</li>
+      <li><strong>Class</strong> (e.g., 6)</li>
+      <li><strong>Select Exam</strong> (e.g., FA-1)</li>
+    </ul>
+  </li>
+  <li>The screen shows a calendar of months spanning the academic year (Jan 2025 – Dec 2026).</li>
+  <li>Check the checkboxes for the months that should be included in this exam's attendance:
+    <ul>
+      <li>Example: For FA-1 (June–August term) → Check June, July, August.</li>
+      <li>Example: For SA-1 (November exam) → Check September, October, November.</li>
+    </ul>
+  </li>
+  <li>Click <strong>Save Settings</strong>.</li>
+  <li>The attendance for the selected months will now appear in the Attendance section on the student's Report Card for this exam.</li>
+</ol>
+<div class="note">&#9432; Allowed range: Jan 2025 – Dec 2026. Maximum 12 months can be selected per exam.</div>
+<div class="note">&#9432; <strong>Always set Exam Attendance before generating Report Cards.</strong> If no months are linked, the attendance section on the Report Card will be blank.</div>
+
+<div class="screenshot">
+  <img src="images/set exam atte.png" alt="Set Exam Attendance screen" />
+  <div class="screenshot-caption">Set Exam Attendance — Select Academic Year, Branch, Class, Exam. Check the attendance months for this exam. Click Save Settings.</div>
+</div>
+
+<!-- STEP 10 -->
+<div class="step-box" id="step10">
+  <div class="step-title">Step 10 — Generate Report Cards</div>
+</div>
+<h3>Generate Single Student Report Card</h3>
+<ol>
+  <li>Click on the <strong>Reports</strong> dropdown in the top navigation.</li>
+  <li>Click on <strong>Student Report Card</strong>.</li>
+  <li>The <strong>Student Progress Report</strong> screen opens with the Select Report Filters panel.</li>
+  <li>Set all required filters:
+    <ul>
+      <li><strong>Branch</strong> (e.g., Murad Nagar)</li>
+      <li><strong>Class</strong> (e.g., 6)</li>
+      <li><strong>Section</strong> (e.g., A)</li>
+      <li><strong>Test/Exam</strong> (e.g., FA-1)</li>
+      <li><strong>Student</strong> — Select a specific student from the dropdown.</li>
+    </ul>
+  </li>
+  <li>Click <strong>Get Report</strong>. The report card for the selected student loads.</li>
+</ol>
+
+<h3>Generate All Students Report Cards</h3>
+<ol>
+  <li>Follow the same steps but instead of selecting a specific student, check the <strong>Select All Students</strong> checkbox in the Student dropdown.</li>
+  <li>The button changes to <strong>Get Reports (N)</strong> showing the number of students.</li>
+  <li>Click <strong>Get Reports (N)</strong>.</li>
+  <li>All student report cards load with the message: <em>"Successfully loaded N student reports! You can now print."</em></li>
+  <li>Click <strong>Print All Reports (N)</strong> to open the print dialog.</li>
+</ol>
+
+<div class="screenshot">
+  <img src="images/Get report.png" alt="Student Progress Report filters screen" />
+  <div class="screenshot-caption">Student Report Card — Set Branch, Class, Section, Test, Student filters. Select All Students for bulk printing. Click Get Reports.</div>
+</div>
+
+<h3>Print Settings for Report Cards</h3>
+<ol>
+  <li>When the print dialog opens, apply the following settings for accurate printing:</li>
+</ol>
+<table>
+  <tr><th>Print Setting</th><th>Value</th></tr>
+  <tr><td>Paper Size</td><td>A4</td></tr>
+  <tr><td>Margins</td><td>Default</td></tr>
+  <tr><td>Scale</td><td>75 (Custom)</td></tr>
+  <tr><td>Layout</td><td>Portrait</td></tr>
+  <tr><td>Pages per sheet</td><td>1</td></tr>
+  <tr><td>Headers and Footers</td><td>Enabled</td></tr>
+  <tr><td>Background Graphics</td><td>Enabled</td></tr>
+</table>
+<div class="note">&#9432; These print settings ensure each student's report card prints accurately on a single A4 page with all content visible and properly formatted.</div>
+
+<div class="screenshot">
+  <img src="images/scaling.png" alt="Report card print preview with print settings" />
+  <div class="screenshot-caption">Print Report Cards — Set Scale to 75, Paper Size A4, Margins Default. Click Save/Print. Each student gets one A4 page.</div>
+</div>
+
+<!-- REPORT CARD SECTIONS -->
+<h3>Report Card Contents</h3>
+<p>Each generated report card contains the following sections:</p>
+<table>
+  <tr><th>Section</th><th>Content</th></tr>
+  <tr><td>Header</td><td>School Name (MS Hifz Academy), Logo, Report Title (Progress Report of FA-1)</td></tr>
+  <tr><td>Student Details</td><td>Student Name, Father's Name, Class/Section, Group/Roll No, Branch, Academic Year</td></tr>
+  <tr><td>Grading Scale</td><td>Grade bands with Min/Max marks for reference</td></tr>
+  <tr><td>Hifz Report</td><td>Hifz subject marks table with columns: Subject, Total Tameerat, Haasil Tameerat, Kul Tameerat, Grade</td></tr>
+  <tr><td>Academic Performance</td><td>Academic subjects marks table with Max Marks, Obtained Marks, Grade — plus pie chart showing subject-wise performance</td></tr>
+  <tr><td>Attendance</td><td>Monthly Attendance summary — Present, Absent, Holiday, Total days for linked months</td></tr>
+  <tr><td>Hifz Target Level</td><td>Hifz progress target data (if applicable)</td></tr>
+  <tr><td>Teacher's Remark</td><td>Space for teacher's comments</td></tr>
+  <tr><td>Signatures</td><td>Signature of Parent, Signature of Teacher, Signature of Principal</td></tr>
+</table>
+
+<!-- SUMMARY -->
+<h2 id="summary">Academic Module — Workflow Summary</h2>
+<table>
+  <tr>
+    <th>Step</th>
+    <th>Action</th>
+    <th>Where</th>
+    <th>Who</th>
+    <th>When</th>
+  </tr>
+  <tr><td>1</td><td>Create Subjects</td><td>Masters → Subjects</td><td>Admin</td><td>Start of year / as needed</td></tr>
+  <tr><td>2</td><td>Assign Subjects to Classes</td><td>Academic Actions → Assign Class Subjects</td><td>Admin</td><td>Start of year</td></tr>
+  <tr><td>3</td><td>Assign Subjects to Students</td><td>Academic Actions → Assign Student Subjects</td><td>Admin / Teacher</td><td>After student enrollment</td></tr>
+  <tr><td>4</td><td>Create Test Types</td><td>Masters → Create Test</td><td>Admin</td><td>Start of year</td></tr>
+  <tr><td>5</td><td>Assign Tests to Classes</td><td>Masters → Add Exam</td><td>Admin</td><td>Start of year</td></tr>
+  <tr><td>5B</td><td>Assign Subjects to Tests</td><td>Academic Actions → Assign Subject Tests</td><td>Admin</td><td>After Step 5</td></tr>
+  <tr><td>6</td><td>Assign Tests to Students</td><td>Academic Actions → Assign Test to Students</td><td>Admin / Teacher</td><td>Before exam</td></tr>
+  <tr><td>7</td><td>Configure Grading Scale</td><td>Masters → Grading</td><td>Admin</td><td>Start of year</td></tr>
+  <tr><td>8</td><td>Enter / Upload Marks</td><td>Enter Marks → Subject Wise / Upload Exam Marks</td><td>Admin / Teacher</td><td>After each exam</td></tr>
+  <tr><td>9</td><td>Set Exam Attendance</td><td>Academic Actions → Set Exam Attendance</td><td>Admin</td><td>Before Report Cards</td></tr>
+  <tr><td>10</td><td>Generate Report Cards</td><td>Reports → Student Report Card</td><td>Admin / Teacher</td><td>After marks &amp; attendance set</td></tr>
+</table>
+
+<br/><hr/>
+<p style="text-align:center; color:#888; font-size:12px;">MS Hifz Academy ERP — Academic Module Documentation &nbsp;|&nbsp; Version 1.0 &nbsp;|&nbsp; 2025–2026</p>
+</body>
+</html>

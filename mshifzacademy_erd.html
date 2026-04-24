@@ -1,0 +1,450 @@
+
+<h2 class="sr-only">Entity-Relationship Diagram for MS Hifz Academy ERP — 5 modules, 33 tables</h2>
+
+<style>
+:root { --tab-gap: 6px; }
+.tabs { display: flex; gap: var(--tab-gap); flex-wrap: wrap; margin-bottom: 16px; }
+.tab-btn {
+  font-size: 12px; padding: 6px 14px; border-radius: var(--border-radius-md);
+  border: 0.5px solid var(--color-border-secondary);
+  background: var(--color-background-secondary);
+  color: var(--color-text-secondary); cursor: pointer; transition: all .15s;
+  font-family: var(--font-sans);
+}
+.tab-btn:hover { background: var(--color-background-primary); color: var(--color-text-primary); }
+.tab-btn.active {
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-primary);
+  font-weight: 500;
+}
+.legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; font-size: 11px; color: var(--color-text-secondary); }
+.legend-item { display: flex; align-items: center; gap: 5px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+#erd-container { min-height: 300px; overflow-x: auto; }
+#erd-container svg { max-width: 100%; }
+.module-desc { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 10px; line-height: 1.5; }
+</style>
+
+<div class="tabs" id="tabs">
+  <button class="tab-btn active" data-module="system">System & Org</button>
+  <button class="tab-btn" data-module="student">Students</button>
+  <button class="tab-btn" data-module="fee">Fees</button>
+  <button class="tab-btn" data-module="attendance">Attendance</button>
+  <button class="tab-btn" data-module="academics">Academics</button>
+</div>
+
+<div class="legend">
+  <span class="legend-item"><span class="dot" style="background:#534AB7"></span>System</span>
+  <span class="legend-item"><span class="dot" style="background:#1D9E75"></span>Students</span>
+  <span class="legend-item"><span class="dot" style="background:#D85A30"></span>Fees</span>
+  <span class="legend-item"><span class="dot" style="background:#BA7517"></span>Attendance</span>
+  <span class="legend-item"><span class="dot" style="background:#378ADD"></span>Academics</span>
+  <span class="legend-item" style="margin-left:auto"><span style="font-size:11px">||--o{ = one-to-many &nbsp;|o--|| = one-to-one</span></span>
+</div>
+
+<p class="module-desc" id="module-desc">Users, branches, access control, audit logs, and enrollment sequences — the foundation all other modules build on.</p>
+<div id="erd-container"></div>
+
+<script type="module">
+import mermaid from 'https://esm.sh/mermaid@11/dist/mermaid.esm.min.mjs';
+
+const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+await document.fonts.ready;
+mermaid.initialize({
+  startOnLoad: false,
+  theme: 'base',
+  fontFamily: '"Anthropic Sans", sans-serif',
+  themeVariables: {
+    darkMode: dark,
+    fontSize: '13px',
+    fontFamily: '"Anthropic Sans", sans-serif',
+    lineColor: dark ? '#9c9a92' : '#73726c',
+    textColor: dark ? '#c2c0b6' : '#3d3d3a',
+    primaryColor: dark ? '#26215C' : '#EEEDFE',
+    primaryBorderColor: dark ? '#7F77DD' : '#534AB7',
+    primaryTextColor: dark ? '#CECBF6' : '#3C3489',
+  },
+});
+
+const modules = {
+  system: {
+    desc: 'Users, branches, access control, audit logs, and enrollment sequences — the foundation all other modules build on.',
+    diagram: `erDiagram
+      users {
+        int user_id PK
+        string username UK
+        string role
+        string useremail UK
+        string branch
+        datetime created_at
+      }
+      audit_logs {
+        bigint id PK
+        string table_name
+        string action
+        json old_data
+        json new_data
+        int user_id FK
+        datetime timestamp
+      }
+      password_reset_otps {
+        int id PK
+        int user_id FK
+        string otp_hash
+        datetime expires_at
+        bool used
+      }
+      org_master {
+        int id PK
+        enum master_type
+        string code UK
+        string display_name
+        bool is_active
+      }
+      branches {
+        int id PK
+        string branch_code UK
+        string branch_name
+        string location_code
+        bool is_active
+      }
+      user_branch_access {
+        int id PK
+        int user_id FK
+        int branch_id FK
+        date start_date
+        date end_date
+        bool is_active
+      }
+      enrollment_sequences {
+        int id PK
+        int branch_id FK
+        int academic_year_id FK
+        string admission_prefix
+        int last_admission_no
+        string receipt_prefix
+        int last_receipt_no
+      }
+      users ||--o{ audit_logs : "tracked by"
+      users ||--o{ password_reset_otps : "has"
+      users ||--o{ user_branch_access : "granted"
+      branches ||--o{ user_branch_access : "assigned to"
+      branches ||--o{ enrollment_sequences : "generates"
+      org_master ||--o{ enrollment_sequences : "scoped by"
+    `
+  },
+  student: {
+    desc: 'Student master records, yearly academic snapshots, document uploads, and document type categorization.',
+    diagram: `erDiagram
+      students {
+        int student_id PK
+        string admission_no UK
+        string first_name
+        string last_name
+        string gender
+        date dob
+        string class
+        string section
+        string status
+        string branch
+        string academic_year
+      }
+      student_academic_records {
+        int id PK
+        int student_id FK
+        string academic_year
+        string class
+        string section
+        int roll_number
+        bool is_promoted
+        bool is_locked
+      }
+      document_types {
+        int id PK
+        string code UK
+        string name
+        string description
+        bool is_active
+      }
+      student_documents {
+        int id PK
+        int student_id FK
+        int document_type_id FK
+        string document_no
+        string file_path
+        bool is_verified
+      }
+      students ||--o{ student_academic_records : "has yearly"
+      students ||--o{ student_documents : "uploads"
+      document_types ||--o{ student_documents : "categorizes"
+    `
+  },
+  fee: {
+    desc: 'Fee types, class structures, installments, student obligations, concessions, and payment receipts — the complete billing lifecycle.',
+    diagram: `erDiagram
+      feetypes {
+        int id PK
+        string feetype
+        string category
+        string type
+        string branch
+        string academic_year
+      }
+      classfeestructure {
+        int id PK
+        string class
+        int feetypeid FK
+        decimal totalamount
+        decimal monthly_amount
+        int installments_count
+        bool isnewadmission
+      }
+      fee_installments {
+        int id PK
+        int installment_no
+        string title
+        date start_date
+        date last_pay_date
+        int fee_type_id FK
+      }
+      studentfees {
+        int id PK
+        int student_id FK
+        int fee_type_id FK
+        string month
+        decimal total_fee
+        decimal paid_amount
+        decimal due_amount
+        decimal concession
+        enum status
+      }
+      concessions {
+        int id PK
+        string title
+        int fee_type_id FK
+        decimal percentage
+        bool is_percentage
+      }
+      fee_payments {
+        int payment_id PK
+        string receipt_no
+        int student_id FK
+        string fee_type
+        decimal amount_paid
+        decimal due_amount
+        string payment_mode
+        date payment_date
+        enum status
+      }
+      students {
+        int student_id PK
+        string admission_no UK
+        string first_name
+      }
+      feetypes ||--o{ classfeestructure : "structures"
+      feetypes ||--o{ fee_installments : "split into"
+      feetypes ||--o{ studentfees : "defines"
+      feetypes ||--o{ concessions : "discounts"
+      students ||--o{ studentfees : "owes"
+      students ||--o{ fee_payments : "pays"
+    `
+  },
+  attendance: {
+    desc: 'Daily student attendance records, configurable weekly off-day rules, and holiday calendars — all scoped to branch and class.',
+    diagram: `erDiagram
+      students {
+        int student_id PK
+        string first_name
+        string branch
+      }
+      branches {
+        int id PK
+        string branch_name
+      }
+      classes {
+        int id PK
+        string class_name UK
+        string branch
+      }
+      attendance {
+        int id PK
+        int student_id FK
+        date date
+        enum status
+        string remarks
+        string branch
+        string academic_year
+      }
+      weekly_off_rule {
+        int id PK
+        int branch_id FK
+        int class_id FK
+        int weekday
+        int week_number
+        string academic_year
+        bool active
+      }
+      holiday_calendar {
+        int id PK
+        int branch_id FK
+        int class_id FK
+        string title
+        date start_date
+        date end_date
+        enum holiday_for
+        string academic_year
+        bool active
+      }
+      students ||--o{ attendance : "marked for"
+      branches ||--o{ weekly_off_rule : "configures"
+      classes ||--o{ weekly_off_rule : "applies to"
+      branches ||--o{ holiday_calendar : "observes"
+      classes ||--o{ holiday_calendar : "applies to"
+    `
+  },
+  academics: {
+    desc: 'Classes, sections, subjects, test types, class tests, student marks, and grade scales — the full academic assessment pipeline.',
+    diagram: `erDiagram
+      classes {
+        int id PK
+        string class_name UK
+        string branch
+      }
+      class_sections {
+        int id PK
+        int class_id FK
+        int branch_id FK
+        string section_name
+        string academic_year
+        bool is_active
+      }
+      subjectmaster {
+        int id PK
+        string subject_name
+        enum subject_type
+        string academic_year
+        bool is_active
+      }
+      studentsubjectassignment {
+        int id PK
+        int student_id FK
+        int subject_id FK
+        string academic_year
+        bool status
+      }
+      testtype {
+        int id PK
+        string test_name
+        int max_marks
+        string academic_year
+        bool is_active
+      }
+      class_test {
+        int id PK
+        int class_id
+        int test_id
+        string academic_year
+        string branch
+        bool status
+      }
+      class_test_subjects {
+        int id PK
+        int class_test_id FK
+        int subject_id FK
+        int max_marks
+      }
+      student_test_assignments {
+        int id PK
+        int student_id FK
+        int class_test_id FK
+        string academic_year
+        bool status
+      }
+      student_marks {
+        int id PK
+        int student_id FK
+        int class_test_id FK
+        int subject_id FK
+        decimal marks_obtained
+        bool is_absent
+        string academic_year
+      }
+      grade_scales {
+        int id PK
+        string scale_name
+        int total_marks
+        string academic_year
+        bool is_active
+      }
+      grade_scale_details {
+        int id PK
+        int grade_scale_id FK
+        string grade
+        int min_marks
+        int max_marks
+        bool is_active
+      }
+      classes ||--o{ class_sections : "divided into"
+      subjectmaster ||--o{ studentsubjectassignment : "assigned to"
+      subjectmaster ||--o{ class_test_subjects : "tested in"
+      subjectmaster ||--o{ student_marks : "graded for"
+      class_test ||--o{ class_test_subjects : "includes"
+      class_test ||--o{ student_test_assignments : "assigned"
+      class_test ||--o{ student_marks : "evaluated in"
+      grade_scales ||--o{ grade_scale_details : "contains"
+    `
+  }
+};
+
+let current = 'system';
+const container = document.getElementById('erd-container');
+const desc = document.getElementById('module-desc');
+
+async function render(key) {
+  const mod = modules[key];
+  desc.textContent = mod.desc;
+  container.innerHTML = '<div style="color:var(--color-text-secondary);font-size:13px;padding:20px 0">Rendering diagram…</div>';
+  try {
+    const id = 'erd-' + key + '-' + Date.now();
+    const { svg } = await mermaid.render(id, mod.diagram);
+    container.innerHTML = svg;
+    
+    document.querySelectorAll('#erd-container svg .node').forEach(node => {
+      const firstPath = node.querySelector('path[d]');
+      if (!firstPath) return;
+      const d = firstPath.getAttribute('d');
+      const nums = d.match(/-?[\d.]+/g)?.map(Number);
+      if (!nums || nums.length < 8) return;
+      const xs = [nums[0], nums[2], nums[4], nums[6]];
+      const ys = [nums[1], nums[3], nums[5], nums[7]];
+      const x = Math.min(...xs), y = Math.min(...ys);
+      const w = Math.max(...xs) - x, h = Math.max(...ys) - y;
+      const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      rect.setAttribute('x', x); rect.setAttribute('y', y);
+      rect.setAttribute('width', w); rect.setAttribute('height', h);
+      rect.setAttribute('rx', '8');
+      for (const a of ['fill', 'stroke', 'stroke-width', 'class', 'style']) {
+        if (firstPath.hasAttribute(a)) rect.setAttribute(a, firstPath.getAttribute(a));
+      }
+      firstPath.replaceWith(rect);
+    });
+    document.querySelectorAll('#erd-container svg .row-rect-odd path, #erd-container svg .row-rect-even path').forEach(p => {
+      p.setAttribute('stroke', 'none');
+    });
+  } catch(e) {
+    container.innerHTML = '<div style="color:var(--color-text-danger);font-size:13px;padding:20px 0">Error rendering diagram: ' + e.message + '</div>';
+  }
+}
+
+document.getElementById('tabs').addEventListener('click', e => {
+  const btn = e.target.closest('.tab-btn');
+  if (!btn) return;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  current = btn.dataset.module;
+  render(current);
+});
+
+render(current);
+</script>
